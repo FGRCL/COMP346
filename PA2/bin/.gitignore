@@ -1,8 +1,11 @@
+/s2$AcquireBlock.class
+/s2$CharStackProber.class
+/s2$ReleaseBlock.class
+/s2.class
 /BlockManager$AcquireBlock.class
 /BlockManager$CharStackProber.class
 /BlockManager$ReleaseBlock.class
 /BlockManager.class
-/BlockStack.class
+/common/
 /EmptyStackException.class
 /FullStackException.class
-/common/

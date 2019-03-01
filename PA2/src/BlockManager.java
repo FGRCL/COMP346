@@ -1,4 +1,6 @@
 // Import (aka include) some stuff.
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import common.*;
 
 /**
@@ -47,7 +49,9 @@ public class BlockManager
 	 * s2 is for use in conjunction with Thread.turnTestAndSet() for phase II proceed
 	 * in the thread creation order
 	 */
-	//private static Semaphore s2 = new Semaphore(...);
+	private static Semaphore s2 = new Semaphore(1);
+	
+	private static int nbFinishedPhase1 = 0;
 
 
 	// The main()
@@ -157,8 +161,13 @@ public class BlockManager
 
 
 			phase1();
+			nbFinishedPhase1++;
+			System.out.println("[TID=" + this.iTID + "] signals it has finished PHASE I");
+			if(nbFinishedPhase1 == 10) {
+				System.out.println("All PHASE I are done");
+			}
 			s1.Signal();
-
+			
 			mutex.Wait();
 			try
 			{
@@ -192,9 +201,31 @@ public class BlockManager
 			}
 			mutex.Signal();
 			
+			
+			
 			s1.Wait();
-			phase2();
-
+			s1.Signal();
+			
+			s2.Wait();
+			if(turnTestAndSet()) {
+				//s2.Signal();
+				phase2();
+				s2.Signal();
+			}else {
+				System.out.println("[TID=" + this.iTID + "] is waiting its turn");
+				s2.Signal();
+				boolean done = false;
+				while(!done) {
+					s2.Wait();
+					if(turnTestAndSet()) {
+						//s2.Signal();
+						phase2();
+						done = true;
+					}
+					s2.Signal();
+				}
+			}
+			
 
 			System.out.println("AcquireBlock thread [TID=" + this.iTID + "] terminates.");
 		}
@@ -217,6 +248,11 @@ public class BlockManager
 
 
 			phase1();
+			nbFinishedPhase1++;
+			System.out.println("[TID=" + this.iTID + "] signals it has finished PHASE I");
+			if(nbFinishedPhase1 == 10) {
+				System.out.println("All PHASE I are done");
+			}
 			s1.Signal();
 
 			mutex.Wait();
@@ -252,10 +288,30 @@ public class BlockManager
 				System.exit(1);
 			}
 			mutex.Signal();
-
+			
+			
 			s1.Wait();
-			phase2();
-
+			s1.Signal();
+			
+			s2.Wait();
+			if(turnTestAndSet()) {
+				//s2.Signal();
+				phase2();
+				s2.Signal();
+			}else {
+				System.out.println("[TID=" + this.iTID + "] is waiting its turn");
+				s2.Signal();
+				boolean done = false;
+				while(!done) {
+					s2.Wait();
+					if(turnTestAndSet()) {
+						//s2.Signal();
+						phase2();
+						done = true;
+					}
+					s2.Signal();
+				}
+			}
 
 			System.out.println("ReleaseBlock thread [TID=" + this.iTID + "] terminates.");
 		}
@@ -270,7 +326,13 @@ public class BlockManager
 		public void run()
 		{
 			phase1();
+			nbFinishedPhase1++;
+			System.out.println("[TID=" + this.iTID + "] signals it has finished PHASE I");
+			if(nbFinishedPhase1 == 10) {
+				System.out.println("All PHASE I are done");
+			}
 			s1.Signal();
+			
 
 			mutex.Wait();
 			try
@@ -299,9 +361,30 @@ public class BlockManager
 				System.exit(1);
 			}
 			mutex.Signal();
-
+			
+			
 			s1.Wait();
-			phase2();
+			s1.Signal();
+			
+			s2.Wait();
+			if(turnTestAndSet()) {
+				//s2.Signal();
+				phase2();
+				s2.Signal();
+			}else {
+				System.out.println("[TID=" + this.iTID + "] is waiting its turn");
+				s2.Signal();
+				boolean done = false;
+				while(!done) {
+					s2.Wait();
+					if(turnTestAndSet()) {
+						//s2.Signal();
+						phase2();
+						done = true;
+					}
+					s2.Signal();
+				}
+			}
 		}
 	} // class CharStackProber
 
