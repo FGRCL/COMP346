@@ -25,9 +25,11 @@ public class Philosopher extends BaseThread
 	{
 		try
 		{
-			// ...
+			System.out.println(iTID+" has started eating");
+			yield();
 			sleep((long)(Math.random() * TIME_TO_WASTE));
-			// ...
+			yield();
+			System.out.println(iTID+" is done eating");
 		}
 		catch(InterruptedException e)
 		{
@@ -47,7 +49,17 @@ public class Philosopher extends BaseThread
 	 */
 	public void think()
 	{
-		// ...
+		try {
+			System.out.println(iTID+" has started thinking");
+			yield();
+			sleep((long)(Math.random() * TIME_TO_WASTE));
+			yield();
+			System.out.println(iTID+" is done thinking");
+		} catch (InterruptedException e) {
+			System.err.println("Philosopher.think():");
+			DiningPhilosophers.reportException(e);
+			System.exit(1);
+		}
 	}
 
 	/**
@@ -60,11 +72,11 @@ public class Philosopher extends BaseThread
 	 */
 	public void talk()
 	{
-		// ...
-
+		System.out.println(iTID+" has started talking");
+		yield();
 		saySomething();
-
-		// ...
+		yield();
+		System.out.println(iTID+" is done talking");
 	}
 
 	/**
