@@ -6,11 +6,11 @@
  */
 public class Monitor
 {
-	/*
-	 * ------------
-	 * Data members
-	 * ------------
-	 */
+	private enum State{
+		hungry, eating, thinking, talking, sleeping;
+	}
+	
+	State[] states;
 
 
 	/**
@@ -19,6 +19,10 @@ public class Monitor
 	public Monitor(int piNumberOfPhilosophers)
 	{
 		// TODO: set appropriate number of chopsticks based on the # of philosophers
+		states = new State[piNumberOfPhilosophers];
+		for(State state: states) {
+			state = State.thinking;
+		}
 	}
 
 	/*
@@ -33,7 +37,9 @@ public class Monitor
 	 */
 	public synchronized void pickUp(final int piTID)
 	{
-		// ...
+		if(states[(piTID-1)%states.length] != State.eating && states[(piTID-1)%states.length] != State.eating && states[piTID] == State.hungry) {
+			states[piTID] = State.eating;
+		}
 	}
 
 	/**
@@ -42,25 +48,34 @@ public class Monitor
 	 */
 	public synchronized void putDown(final int piTID)
 	{
-		// ...
+		states[piTID] = State.thinking;
 	}
 
 	/**
 	 * Only one philopher at a time is allowed to philosophy
 	 * (while she is not eating).
 	 */
-	public synchronized void requestTalk()
+	public synchronized void requestTalk(final int piTID)
 	{
-		// ...
+		boolean isSomeoneTalking = false;
+		for(State state: states) {
+			if(state == State.talking) {
+				isSomeoneTalking = true;
+			}
+		}
+		
+		if(!isSomeoneTalking) {
+			states[piTID] = State.talking;
+		}
 	}
 
 	/**
 	 * When one philosopher is done talking stuff, others
 	 * can feel free to start talking.
 	 */
-	public synchronized void endTalk()
+	public synchronized void endTalk(final int piTID)
 	{
-		// ...
+		states[piTID] = State.thinking;
 	}
 }
 
