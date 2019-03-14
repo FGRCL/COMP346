@@ -1,13 +1,13 @@
-/.metadata/
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/segments_4
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/segments.gen
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_3.tis
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_3.tii
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_3.prx
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_3.nrm
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_3.frq
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_3.fnm
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_3.fdx
-.recommenders/index/http___download_eclipse_org_recommenders_models_oxygen_/_3.fdt
-.recommenders/caches/manual-mappings.json
-.recommenders/caches/identified-project-coordinates.json
+### Eclipse ###
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
