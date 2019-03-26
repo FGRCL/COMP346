@@ -1,33 +1,34 @@
+import java.util.concurrent.locks.Condition;
+
 /**
- * Class Monitor
- * To synchronize dining philosophers.
+ * Class Monitor To synchronize dining philosophers.
  *
  * @author Serguei A. Mokhov, mokhov@cs.concordia.ca
  */
-public class Monitor
-{
-	private enum State{
-		hungry, eating, thinking, talking, sleeping;
-	}
-	
-	State[] states;
+public class Monitor {
+	private enum State { hungry, eating, thinking, talking, sleeping }
 
+	State[] states;
+	
+	private int sleepingCount;
+	private int talkingCount;
+	Condition sleeping;
 
 	/**
 	 * Constructor
 	 */
-	public Monitor(int piNumberOfPhilosophers)
-	{
+	public Monitor(int piNumberOfPhilosophers) {
 		// TODO: set appropriate number of chopsticks based on the # of philosophers
 		states = new State[piNumberOfPhilosophers];
-		for(State state: states) {
-			state = State.thinking;
+		for (int i = 0; i < states.length; i++) {
+			states[i] = State.thinking;
 		}
+		sleepingCount = 0;
+		talkingCount  = 0;
 	}
 
 	/*
-	 * -------------------------------
-	 * User-defined monitor procedures
+	 * ------------------------------- User-defined monitor procedures
 	 * -------------------------------
 	 */
 
@@ -35,47 +36,66 @@ public class Monitor
 	 * Grants request (returns) to eat when both chopsticks/forks are available.
 	 * Else forces the philosopher to wait()
 	 */
-	public synchronized void pickUp(final int piTID)
-	{
-		if(states[(piTID-1)%states.length] != State.eating && states[(piTID-1)%states.length] != State.eating && states[piTID] == State.hungry) {
-			states[piTID] = State.eating;
+	public synchronized void pickUp(final int piTID) {
+		states[piTID - 1] = State.hungry;
+		test(piTID);
+
+		if (states[piTID - 1] == State.hungry) {
+			try {
+				System.out.println(piTID + " wait");
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
 	/**
-	 * When a given philosopher's done eating, they put the chopstiks/forks down
-	 * and let others know they are available.
+	 * When a given philosopher's done eating, they put the chopstiks/forks down and
+	 * let others know they are available.
 	 */
-	public synchronized void putDown(final int piTID)
-	{
-		states[piTID] = State.thinking;
+	public synchronized void putDown(final int piTID) {
+		states[piTID - 1] = State.thinking;
+		test(((piTID - 1) + (states.length - 1)) % states.length + 1);
+		test((piTID) % states.length + 1);
+	}
+
+	private synchronized void test(int piTID) {
+		if (states[((piTID - 1) + (states.length - 1)) % states.length] != State.eating
+				&& states[(piTID) % states.length] != State.eating && states[piTID - 1] == State.hungry) {
+			states[piTID - 1] = State.eating;
+			notify();
+		}
 	}
 
 	/**
-	 * Only one philopher at a time is allowed to philosophy
-	 * (while she is not eating).
+	 * Only one philopher at a time is allowed to philosophy (while she is not
+	 * eating).
 	 */
-	public synchronized void requestTalk(final int piTID)
-	{
+	public synchronized void requestTalk(final int piTID) {
 		boolean isSomeoneTalking = false;
-		for(State state: states) {
-			if(state == State.talking) {
+		for (State state : states) {
+			if (state == State.talking) {
 				isSomeoneTalking = true;
 			}
 		}
-		
-		if(!isSomeoneTalking) {
-			states[piTID] = State.talking;
+
+		if (isSomeoneTalking) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
+		states[piTID - 1] = State.talking;
 	}
 
 	/**
-	 * When one philosopher is done talking stuff, others
-	 * can feel free to start talking.
+	 * When one philosopher is done talking stuff, others can feel free to start
+	 * talking.
 	 */
-	public synchronized void endTalk(final int piTID)
-	{
-		states[piTID] = State.thinking;
+	public synchronized void endTalk(final int piTID) {
+		states[piTID - 1] = State.thinking;
 	}
 }
 
