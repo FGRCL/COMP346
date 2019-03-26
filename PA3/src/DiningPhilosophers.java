@@ -16,12 +16,14 @@ public class DiningPhilosophers
 	 * This default may be overridden from the command line
 	 */
 	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 4;
+	
+	public static final boolean DEV_MODE = false;
 
 	/**
 	 * Dining "iterations" per philosopher thread
 	 * while they are socializing there
 	 */
-	public static final int DINING_STEPS = 1;
+	public static final int DINING_STEPS = 10;
 
 	/**
 	 * Our shared monitor for the philosphers to consult
@@ -41,13 +43,11 @@ public class DiningPhilosophers
 	{
 		try
 		{
-			/*
-			 * TODO:
-			 * Should be settable from the command line
-			 * or the default if no arguments supplied.
-			 */
 			int iPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
-
+			if(argv.length>0 && Integer.parseInt(argv[0])>=0) {
+				iPhilosophers = Integer.parseInt(argv[0]);
+			}
+			
 			// Make the monitor aware of how many philosophers there are
 			soMonitor = new Monitor(iPhilosophers);
 

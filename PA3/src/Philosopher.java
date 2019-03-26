@@ -12,7 +12,7 @@ public class Philosopher extends BaseThread {
 	 */
 	public static final long TIME_TO_WASTE = 1000;
 	
-	private static double percentChanceTalking = 0.6;
+	private static double percentChanceTalking = 1;
 
 	/**
 	 * The act of eating. - Print the fact that a given phil (their TID) has started
@@ -100,7 +100,13 @@ public class Philosopher extends BaseThread {
 		String[] astrPhrases = { "Eh, it's not easy to be a philosopher: eat, think, talk, eat...",
 				"You know, true is false and false is true if you think of it",
 				"2 + 2 = 5 for extremely large values of 2...", "If thee cannot speak, thee must be silent",
-				"My number is " + getTID() + "" };
+				"My number is " + getTID() + "",
+				"To live is to suffer, to survive is to find some meaning in the suffering.",
+				"When you look into an abyss, the abyss also looks into you.",
+				"God is dead. God remains dead. And we have killed him.",
+				"Love is a serious mental disease.",
+				"Man - a being in search of meaning.",
+				"One of the penalties for refusing to participate in politics is that you end up being governed by your inferiors."};
 
 		System.out.println(
 				"Philosopher " + getTID() + " says: " + astrPhrases[(int) (Math.random() * astrPhrases.length)]);

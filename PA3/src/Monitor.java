@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.concurrent.locks.Condition;
 
 /**
@@ -6,9 +7,9 @@ import java.util.concurrent.locks.Condition;
  * @author Serguei A. Mokhov, mokhov@cs.concordia.ca
  */
 public class Monitor {
-	private enum State { hungry, eating, thinking, talking, sleeping }
+	public static enum State { hungry, eating, thinking, talking, sleeping, onechopstick }
 
-	State[] states;
+	public State[] states;
 	
 	private int sleepingCount;
 	private int talkingCount;
@@ -37,16 +38,21 @@ public class Monitor {
 	 * Else forces the philosopher to wait()
 	 */
 	public synchronized void pickUp(final int piTID) {
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(states));
+		}
 		states[piTID - 1] = State.hungry;
 		test(piTID);
 
 		if (states[piTID - 1] == State.hungry) {
 			try {
-				System.out.println(piTID + " wait");
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+		}
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(states));
 		}
 	}
 
@@ -55,9 +61,15 @@ public class Monitor {
 	 * let others know they are available.
 	 */
 	public synchronized void putDown(final int piTID) {
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(states));
+		}
 		states[piTID - 1] = State.thinking;
 		test(((piTID - 1) + (states.length - 1)) % states.length + 1);
 		test((piTID) % states.length + 1);
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(states));
+		}
 	}
 
 	private synchronized void test(int piTID) {
@@ -73,6 +85,9 @@ public class Monitor {
 	 * eating).
 	 */
 	public synchronized void requestTalk(final int piTID) {
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(states));
+		}
 		boolean isSomeoneTalking = false;
 		for (State state : states) {
 			if (state == State.talking) {
@@ -88,6 +103,9 @@ public class Monitor {
 			}
 		}
 		states[piTID - 1] = State.talking;
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(states));
+		}
 	}
 
 	/**
@@ -95,7 +113,14 @@ public class Monitor {
 	 * talking.
 	 */
 	public synchronized void endTalk(final int piTID) {
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(states));
+		}
 		states[piTID - 1] = State.thinking;
+		notify();
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(states));
+		}
 	}
 }
 
