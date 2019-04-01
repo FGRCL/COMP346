@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.concurrent.locks.Condition;
 
 /**
@@ -52,7 +51,7 @@ public class Monitor {
 	 */
 	public synchronized void putDown(final int piTID) {
 		states[piTID] = State.thinking;
-		notify();
+		notifyAll();
 	}
 
 	/**
@@ -91,11 +90,11 @@ public class Monitor {
 	}
 	
 	private synchronized boolean canEat(int piTID) {
-		return (states[leftPhilosopher(piTID)] != State.eating && 
-				states[rightPhilosopher(piTID)] != State.eating && 
-					((leftPhilosopher(piTID)% states.length>piTID && states[leftPhilosopher(piTID)] != State.hungry) 
-					|| 
-					(rightPhilosopher(piTID)% states.length>piTID && states[rightPhilosopher(piTID)] != State.hungry)) );
+		boolean leftChopsitckAvailable = states[leftPhilosopher(piTID)] != State.eating && 
+				(leftPhilosopher(piTID)% states.length>=piTID || (leftPhilosopher(piTID)% states.length<piTID && states[leftPhilosopher(piTID)] != State.hungry));
+		boolean rightChopstickAvailable = states[rightPhilosopher(piTID)] != State.eating && 
+				(rightPhilosopher(piTID)% states.length>=piTID || (rightPhilosopher(piTID)% states.length<piTID && states[rightPhilosopher(piTID)] != State.hungry));
+		return leftChopsitckAvailable && rightChopstickAvailable;
 	}
 }
 

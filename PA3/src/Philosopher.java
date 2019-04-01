@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 import common.BaseThread;
@@ -8,13 +9,14 @@ import common.BaseThread;
  * @author Serguei A. Mokhov, mokhov@cs.concordia.ca
  */
 public class Philosopher extends BaseThread {
-
 	/**
 	 * Max time an action can take (in milliseconds)
 	 */
 	public static final long TIME_TO_WASTE = 1000;
 	
 	private static double percentChanceTalking = 1;
+	
+	private PrintWriter debugLog;
 
 	/**
 	 * The act of eating. - Print the fact that a given phil (their TID) has started
@@ -24,10 +26,8 @@ public class Philosopher extends BaseThread {
 	public void eat() {
 		try {
 			System.out.println(iTID + " has started eating");
+			logArray();
 			yield();
-			if(DiningPhilosophers.DEV_MODE) {
-				System.out.println("\t\t"+Arrays.toString(DiningPhilosophers.soMonitor.states));
-			}
 			sleep((long) (Math.random() * TIME_TO_WASTE));
 			yield();
 			System.out.println(iTID + " is done eating");
@@ -46,10 +46,8 @@ public class Philosopher extends BaseThread {
 	public void think() {
 		try {
 			System.out.println(iTID + " has started thinking");
+			logArray();
 			yield();
-			if(DiningPhilosophers.DEV_MODE) {
-				System.out.println("\t\t"+Arrays.toString(DiningPhilosophers.soMonitor.states));
-			}
 			sleep((long) (Math.random() * TIME_TO_WASTE));
 			yield();
 			System.out.println(iTID + " is done thinking");
@@ -67,10 +65,8 @@ public class Philosopher extends BaseThread {
 	 */
 	public void talk() {
 		System.out.println(iTID + " has started talking");
+		logArray();
 		yield();
-		if(DiningPhilosophers.DEV_MODE) {
-			System.out.println("\t\t"+Arrays.toString(DiningPhilosophers.soMonitor.states));
-		}
 		saySomething();
 		yield();
 		System.out.println(iTID + " is done talking");
@@ -81,6 +77,7 @@ public class Philosopher extends BaseThread {
 	 */
 	public void run() {
 		try {
+			debugLog  = new PrintWriter("debug.log", "UTF-8");
 			for (int i = 0; i < DiningPhilosophers.DINING_STEPS; i++) {
 				DiningPhilosophers.soMonitor.pickUp(getTID()-1);
 				eat();
@@ -105,6 +102,8 @@ public class Philosopher extends BaseThread {
 		}catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("It didn't work");
+		} finally {
+			debugLog.close();
 		}
 	} // run()
 
@@ -126,6 +125,13 @@ public class Philosopher extends BaseThread {
 
 		System.out.println(
 				"Philosopher " + getTID() + " says: " + astrPhrases[(int) (Math.random() * astrPhrases.length)]);
+	}
+	
+	private synchronized void logArray() {
+		debugLog.println(Arrays.toString(DiningPhilosophers.soMonitor.states));
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(DiningPhilosophers.soMonitor.states));
+		}
 	}
 }
 

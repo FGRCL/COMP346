@@ -12,7 +12,6 @@ class unit {
 	@RepeatedTest(100)
 	@ValueSource(ints = { 1,2,3,4 })
 	void pickinpUp(int argument) {
-		monitor.pickUp(argument);;
 	}
 
 }
