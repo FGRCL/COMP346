@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import common.BaseThread;
 
 /**
@@ -23,6 +25,9 @@ public class Philosopher extends BaseThread {
 		try {
 			System.out.println(iTID + " has started eating");
 			yield();
+			if(DiningPhilosophers.DEV_MODE) {
+				System.out.println("\t\t"+Arrays.toString(DiningPhilosophers.soMonitor.states));
+			}
 			sleep((long) (Math.random() * TIME_TO_WASTE));
 			yield();
 			System.out.println(iTID + " is done eating");
@@ -42,6 +47,9 @@ public class Philosopher extends BaseThread {
 		try {
 			System.out.println(iTID + " has started thinking");
 			yield();
+			if(DiningPhilosophers.DEV_MODE) {
+				System.out.println("\t\t"+Arrays.toString(DiningPhilosophers.soMonitor.states));
+			}
 			sleep((long) (Math.random() * TIME_TO_WASTE));
 			yield();
 			System.out.println(iTID + " is done thinking");
@@ -60,6 +68,9 @@ public class Philosopher extends BaseThread {
 	public void talk() {
 		System.out.println(iTID + " has started talking");
 		yield();
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(DiningPhilosophers.soMonitor.states));
+		}
 		saySomething();
 		yield();
 		System.out.println(iTID + " is done talking");
