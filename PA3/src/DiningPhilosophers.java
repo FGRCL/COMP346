@@ -1,3 +1,9 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Class DiningPhilosophers
  * The main starter.
@@ -17,7 +23,7 @@ public class DiningPhilosophers
 	 */
 	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 4;
 	
-	public static final boolean DEV_MODE = true;
+	public static final boolean DEV_MODE = false;
 
 	/**
 	 * Dining "iterations" per philosopher thread
@@ -29,6 +35,10 @@ public class DiningPhilosophers
 	 * Our shared monitor for the philosphers to consult
 	 */
 	public static Monitor soMonitor = null;
+	
+	private static PrintWriter debugLog;
+	
+	private static ArrayList<String> debugQueue = new ArrayList<String>();
 
 	/*
 	 * -------
@@ -73,6 +83,7 @@ public class DiningPhilosophers
 				aoPhilosophers[j].join();
 
 			System.out.println("All philosophers have left. System terminates normally.");
+			writeLog();
 		}
 		catch(InterruptedException e)
 		{
@@ -92,6 +103,28 @@ public class DiningPhilosophers
 		System.err.println("Message          : " + poException.getMessage());
 		System.err.println("Stack Trace      : ");
 		poException.printStackTrace(System.err);
+	}
+	
+	public static synchronized void logArray() {
+		debugQueue.add(Arrays.toString(DiningPhilosophers.soMonitor.states));
+		if(DiningPhilosophers.DEV_MODE) {
+			System.out.println("\t\t"+Arrays.toString(DiningPhilosophers.soMonitor.states));
+		}
+	}
+	
+	private static synchronized void writeLog() {
+		try {
+			debugLog  = new PrintWriter("debug.log", "UTF-8");
+			for(String line: debugQueue) {
+				debugLog.println(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} finally {
+			debugLog.close();
+		}
 	}
 }
 
