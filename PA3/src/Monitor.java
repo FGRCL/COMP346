@@ -37,17 +37,13 @@ public class Monitor {
 	 * Grants request (returns) to eat when both chopsticks/forks are available.
 	 * Else forces the philosopher to wait()
 	 */
-	public synchronized void pickUp(final int piTID) {
-		states[piTID - 1] = State.hungry;
-		test(piTID);
-
-		if (states[piTID - 1] == State.hungry) {
-			try {
-				wait();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+	public synchronized void pickUp(final int piTID) throws InterruptedException{
+		states[piTID] = State.hungry;
+		while (!canEat(piTID))
+		{
+			wait();
 		}
+		states[piTID] = State.eating;
 	}
 
 	/**
@@ -55,27 +51,15 @@ public class Monitor {
 	 * let others know they are available.
 	 */
 	public synchronized void putDown(final int piTID) {
-		states[piTID - 1] = State.thinking;
-		test(((piTID - 1) + (states.length - 1)) % states.length + 1);
-		test((piTID) % states.length + 1);
-	}
-
-	private synchronized void test(int piTID) {
-		if (states[((piTID - 1) + (states.length - 1)) % states.length] != State.eating && 
-			states[(piTID) % states.length] != State.eating && 
-			states[piTID - 1] == State.hungry &&
-			((((piTID - 1) + (states.length - 1)) % states.length>piTID-1) && (states[((piTID - 1) + (states.length - 1)) % states.length] != State.hungry)) && 
-			((((piTID - 1) + (states.length - 1)) % states.length>piTID-1) && states[(piTID) % states.length] != State.hungry) ){
-			states[piTID - 1] = State.eating;
-			notify();
-		}
+		states[piTID] = State.thinking;
+		notify();
 	}
 
 	/**
 	 * Only one philopher at a time is allowed to philosophy (while she is not
 	 * eating).
 	 */
-	public synchronized void requestTalk(final int piTID) {
+	public synchronized void requestTalk(final int piTID) throws InterruptedException{
 		boolean isSomeoneTalking = false;
 		for (State state : states) {
 			if (state == State.talking) {
@@ -84,13 +68,9 @@ public class Monitor {
 		}
 
 		if (isSomeoneTalking) {
-			try {
-				wait();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			wait();
 		}
-		states[piTID - 1] = State.talking;
+		states[piTID] = State.talking;
 	}
 
 	/**
@@ -98,8 +78,24 @@ public class Monitor {
 	 * talking.
 	 */
 	public synchronized void endTalk(final int piTID) {
-		states[piTID - 1] = State.thinking;
+		states[piTID] = State.thinking;
 		notify();
+	}
+	
+	private synchronized int leftPhilosopher(int i) {
+		return (i+states.length-1)%states.length;
+	}
+	
+	private synchronized int rightPhilosopher(int i) {
+		return (i+1)%states.length;
+	}
+	
+	private synchronized boolean canEat(int piTID) {
+		return (states[leftPhilosopher(piTID)] != State.eating && 
+				states[rightPhilosopher(piTID)] != State.eating && 
+					((leftPhilosopher(piTID)% states.length>piTID && states[leftPhilosopher(piTID)] != State.hungry) 
+					|| 
+					(rightPhilosopher(piTID)% states.length>piTID && states[rightPhilosopher(piTID)] != State.hungry)) );
 	}
 }
 
