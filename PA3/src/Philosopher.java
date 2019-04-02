@@ -1,9 +1,3 @@
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import common.BaseThread;
 
 /**
@@ -18,6 +12,8 @@ public class Philosopher extends BaseThread {
 	public static final long TIME_TO_WASTE = 1000;
 	
 	private static double percentChanceTalking = 1;
+	
+	private static double percentChancePhilosopherChange = 0.5;
 
 	/**
 	 * The act of eating. - Print the fact that a given phil (their TID) has started
@@ -98,6 +94,16 @@ public class Philosopher extends BaseThread {
 				}
 
 				yield();
+				
+				rand = Math.random();
+				if(rand < percentChancePhilosopherChange) {
+					DiningPhilosophers.soMonitor.addPhilosopher(getTID()-1);
+				}else {
+					rand = Math.random();
+					if(rand < percentChancePhilosopherChange) {
+						DiningPhilosophers.soMonitor.removePhilosopher(getTID()-1);
+					}
+				}	
 			}
 		}catch (Exception e) {
 			e.printStackTrace();

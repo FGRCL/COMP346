@@ -2,7 +2,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Class DiningPhilosophers
@@ -23,7 +22,7 @@ public class DiningPhilosophers
 	 */
 	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 4;
 	
-	public static final boolean DEV_MODE = false;
+	public static final boolean DEV_MODE = true;
 
 	/**
 	 * Dining "iterations" per philosopher thread
@@ -106,9 +105,9 @@ public class DiningPhilosophers
 	}
 	
 	public static synchronized void logArray() {
-		debugQueue.add(Arrays.toString(DiningPhilosophers.soMonitor.states));
+		debugQueue.add(DiningPhilosophers.soMonitor.states.toString());
 		if(DiningPhilosophers.DEV_MODE) {
-			System.out.println("\t\t"+Arrays.toString(DiningPhilosophers.soMonitor.states));
+			System.out.println("\t\t"+DiningPhilosophers.soMonitor.states);
 		}
 	}
 	

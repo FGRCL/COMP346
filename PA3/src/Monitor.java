@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.concurrent.locks.Condition;
 
 /**
@@ -8,7 +9,7 @@ import java.util.concurrent.locks.Condition;
 public class Monitor {
 	public static enum State { hungry, eating, thinking, talking, sleeping }
 
-	public State[] states;
+	public ArrayList<State> states;
 	
 	private int sleepingCount;
 	private int talkingCount;
@@ -18,10 +19,9 @@ public class Monitor {
 	 * Constructor
 	 */
 	public Monitor(int piNumberOfPhilosophers) {
-		// TODO: set appropriate number of chopsticks based on the # of philosophers
-		states = new State[piNumberOfPhilosophers];
-		for (int i = 0; i < states.length; i++) {
-			states[i] = State.thinking;
+		states = new ArrayList<State>(piNumberOfPhilosophers);
+		for (int i = 0; i < piNumberOfPhilosophers; i++) {
+			states.add(State.thinking);
 		}
 		sleepingCount = 0;
 		talkingCount  = 0;
@@ -37,12 +37,12 @@ public class Monitor {
 	 * Else forces the philosopher to wait()
 	 */
 	public synchronized void pickUp(final int piTID) throws InterruptedException{
-		states[piTID] = State.hungry;
+		states.set(piTID, State.hungry);
 		while (!canEat(piTID))
 		{
 			wait();
 		}
-		states[piTID] = State.eating;
+		states.set(piTID, State.eating);
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class Monitor {
 	 * let others know they are available.
 	 */
 	public synchronized void putDown(final int piTID) {
-		states[piTID] = State.thinking;
+		states.set(piTID, State.thinking);
 		notifyAll();
 	}
 
@@ -69,7 +69,7 @@ public class Monitor {
 		if (isSomeoneTalking) {
 			wait();
 		}
-		states[piTID] = State.talking;
+		states.set(piTID, State.talking);
 	}
 
 	/**
@@ -77,24 +77,34 @@ public class Monitor {
 	 * talking.
 	 */
 	public synchronized void endTalk(final int piTID) {
-		states[piTID] = State.thinking;
+		states.set(piTID, State.thinking);
 		notify();
 	}
 	
-	private synchronized int leftPhilosopher(int i) {
-		return (i+states.length-1)%states.length;
+	private synchronized int leftPhilosopher(final int i) {
+		return (i+states.size()-1)%states.size();
 	}
 	
-	private synchronized int rightPhilosopher(int i) {
-		return (i+1)%states.length;
+	private synchronized int rightPhilosopher(final int i) {
+		return (i+1)%states.size();
 	}
 	
-	private synchronized boolean canEat(int piTID) {
-		boolean leftChopsitckAvailable = states[leftPhilosopher(piTID)] != State.eating && 
-				(leftPhilosopher(piTID)% states.length>=piTID || (leftPhilosopher(piTID)% states.length<piTID && states[leftPhilosopher(piTID)] != State.hungry));
-		boolean rightChopstickAvailable = states[rightPhilosopher(piTID)] != State.eating && 
-				(rightPhilosopher(piTID)% states.length>=piTID || (rightPhilosopher(piTID)% states.length<piTID && states[rightPhilosopher(piTID)] != State.hungry));
+	private synchronized boolean canEat(final int piTID) {
+		boolean leftChopsitckAvailable = states.get(leftPhilosopher(piTID)) != State.eating && 
+				(leftPhilosopher(piTID)% states.size()>=piTID || (leftPhilosopher(piTID)% states.size()<piTID && states.get(leftPhilosopher(piTID)) != State.hungry));
+		boolean rightChopstickAvailable = states.get(rightPhilosopher(piTID)) != State.eating && 
+				(rightPhilosopher(piTID)% states.size()>=piTID || (rightPhilosopher(piTID)% states.size()<piTID && states.get(rightPhilosopher(piTID)) != State.hungry));
 		return leftChopsitckAvailable && rightChopstickAvailable;
+	}
+
+	public synchronized void addPhilosopher(final int piTID) {
+		System.out.println((piTID+1)+" invites "+states.size());
+		states.add(State.thinking);
+	}
+
+	public synchronized void removePhilosopher(final int piTID) {
+		System.out.println((piTID+1)+" bids farewell to his fellow philosophers");
+		states.remove(piTID);
 	}
 }
 
