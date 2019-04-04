@@ -25,9 +25,10 @@ public class Philosopher extends BaseThread {
 			System.out.println(iTID + " has started eating");
 			DiningPhilosophers.logArray();
 			yield();
-			sleep((long) (Math.random() * TIME_TO_WASTE));
+			sleep();
 			yield();
 			System.out.println(iTID + " is done eating");
+			DiningPhilosophers.logArray();
 		} catch (InterruptedException e) {
 			System.err.println("Philosopher.eat():");
 			DiningPhilosophers.reportException(e);
@@ -45,9 +46,10 @@ public class Philosopher extends BaseThread {
 			System.out.println(iTID + " has started thinking");
 			DiningPhilosophers.logArray();
 			yield();
-			sleep((long) (Math.random() * TIME_TO_WASTE));
+			sleep();
 			yield();
 			System.out.println(iTID + " is done thinking");
+			DiningPhilosophers.logArray();
 		} catch (InterruptedException e) {
 			System.err.println("Philosopher.think():");
 			DiningPhilosophers.reportException(e);
@@ -67,6 +69,21 @@ public class Philosopher extends BaseThread {
 		saySomething();
 		yield();
 		System.out.println(iTID + " is done talking");
+		DiningPhilosophers.logArray();
+	}
+	
+	/**
+	 * The act of a philospher sleeping
+	 * essentially wraps Thread.sleep()
+	 */
+	public void sleep() throws InterruptedException {
+		DiningPhilosophers.soMonitor.requestSleep(getTID()-1);
+		System.out.println(iTID + " has started sleeping");
+		DiningPhilosophers.logArray();
+		sleep((long) (Math.random() * TIME_TO_WASTE));
+		System.out.println(iTID + " is done sleeping");
+		DiningPhilosophers.logArray();
+		DiningPhilosophers.soMonitor.endSleep(getTID()-1);
 	}
 
 	/**
@@ -95,15 +112,15 @@ public class Philosopher extends BaseThread {
 
 				yield();
 				
-				rand = Math.random();
-				if(rand < percentChancePhilosopherChange) {
-					DiningPhilosophers.soMonitor.addPhilosopher(getTID()-1);
-				}else {
-					rand = Math.random();
-					if(rand < percentChancePhilosopherChange) {
-						DiningPhilosophers.soMonitor.removePhilosopher(getTID()-1);
-					}
-				}	
+//				rand = Math.random();
+//				if(rand < percentChancePhilosopherChange) {
+//					DiningPhilosophers.soMonitor.addPhilosopher(getTID()-1);
+//				}else {
+//					rand = Math.random();
+//					if(rand < percentChancePhilosopherChange) {
+//						DiningPhilosophers.soMonitor.removePhilosopher(getTID()-1);
+//					}
+//				}	
 			}
 		}catch (Exception e) {
 			e.printStackTrace();

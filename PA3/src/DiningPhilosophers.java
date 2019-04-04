@@ -20,7 +20,7 @@ public class DiningPhilosophers
 	/**
 	 * This default may be overridden from the command line
 	 */
-	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 4;
+	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 10;
 	
 	public static final boolean DEV_MODE = true;
 
@@ -28,7 +28,7 @@ public class DiningPhilosophers
 	 * Dining "iterations" per philosopher thread
 	 * while they are socializing there
 	 */
-	public static final int DINING_STEPS = 10;
+	public static final int DINING_STEPS = 100;
 
 	/**
 	 * Our shared monitor for the philosphers to consult
@@ -108,6 +108,28 @@ public class DiningPhilosophers
 		debugQueue.add(DiningPhilosophers.soMonitor.states.toString());
 		if(DiningPhilosophers.DEV_MODE) {
 			System.out.println("\t\t"+DiningPhilosophers.soMonitor.states);
+		}
+		validateArray();
+	}
+	
+	private static void validateArray() {
+		int sleepingCount = 0;
+		int talkingCount = 0;
+		
+		for(int i=0; i<DiningPhilosophers.soMonitor.states.size(); i++) {
+			if(DiningPhilosophers.soMonitor.states.get(i) == Monitor.State.eating && ( DiningPhilosophers.soMonitor.states.get((i+DiningPhilosophers.soMonitor.states.size()-1)%DiningPhilosophers.soMonitor.states.size()) == Monitor.State.eating || DiningPhilosophers.soMonitor.states.get((i+1)%DiningPhilosophers.soMonitor.states.size()) == Monitor.State.eating)) {
+				System.err.println((i+1)+" has neighbours eating");
+			}else if(DiningPhilosophers.soMonitor.states.get(i) == Monitor.State.sleeping) {
+				sleepingCount++;
+			}else if(DiningPhilosophers.soMonitor.states.get(i) == Monitor.State.talking) {
+				talkingCount++;
+			}
+			
+			if(talkingCount>1) {
+				System.err.println("More than one talker");
+			}else if(talkingCount>0 && sleepingCount>0) {
+				System.err.println("Talker and sleeper at the same time");
+			}
 		}
 	}
 	

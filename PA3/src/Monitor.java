@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.concurrent.locks.Condition;
 
 /**
  * Class Monitor To synchronize dining philosophers.
@@ -13,7 +12,7 @@ public class Monitor {
 	
 	private int sleepingCount;
 	private int talkingCount;
-	Condition sleeping;
+	private int talkPendingCount;
 
 	/**
 	 * Constructor
@@ -24,7 +23,8 @@ public class Monitor {
 			states.add(State.thinking);
 		}
 		sleepingCount = 0;
-		talkingCount  = 0;
+		talkingCount = 0;
+		talkPendingCount  = 0;
 	}
 
 	/*
@@ -59,16 +59,11 @@ public class Monitor {
 	 * eating).
 	 */
 	public synchronized void requestTalk(final int piTID) throws InterruptedException{
-		boolean isSomeoneTalking = false;
-		for (State state : states) {
-			if (state == State.talking) {
-				isSomeoneTalking = true;
-			}
-		}
-
-		if (isSomeoneTalking) {
+		talkPendingCount++;
+		while(isSomeoneTalking() || sleepingCount > 0 || talkingCount > 0) {
 			wait();
 		}
+		talkingCount++;
 		states.set(piTID, State.talking);
 	}
 
@@ -77,8 +72,28 @@ public class Monitor {
 	 * talking.
 	 */
 	public synchronized void endTalk(final int piTID) {
+		talkPendingCount--;
+		talkingCount--;
 		states.set(piTID, State.thinking);
-		notify();
+		if(talkingCount<=0) {
+			notifyAll();
+		}
+	}
+	
+	public synchronized void requestSleep(final int piTID) throws InterruptedException{
+		while(isSomeoneTalking() || talkPendingCount > 0) {
+			wait();
+		}
+		sleepingCount++;
+		states.set(piTID, State.sleeping);
+	}
+
+	public synchronized void endSleep(final int piTID) {
+		sleepingCount--;
+		states.set(piTID, State.thinking);
+		if(sleepingCount<0) {
+			notifyAll();
+		}
 	}
 	
 	private synchronized int leftPhilosopher(final int i) {
@@ -105,6 +120,16 @@ public class Monitor {
 	public synchronized void removePhilosopher(final int piTID) {
 		System.out.println((piTID+1)+" bids farewell to his fellow philosophers");
 		states.remove(piTID);
+	}
+	
+	private synchronized boolean isSomeoneTalking() {
+		boolean isSomeoneTalking = false;
+		for (State state : states) {
+			if (state == State.talking) {
+				isSomeoneTalking = true;
+			}
+		}
+		return isSomeoneTalking;
 	}
 }
 
