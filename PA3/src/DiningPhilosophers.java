@@ -20,7 +20,7 @@ public class DiningPhilosophers
 	/**
 	 * This default may be overridden from the command line
 	 */
-	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 10;
+	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 4;
 	
 	public static final boolean DEV_MODE = true;
 
@@ -28,7 +28,7 @@ public class DiningPhilosophers
 	 * Dining "iterations" per philosopher thread
 	 * while they are socializing there
 	 */
-	public static final int DINING_STEPS = 100;
+	public static final int DINING_STEPS = 10;
 
 	/**
 	 * Our shared monitor for the philosphers to consult
@@ -38,6 +38,9 @@ public class DiningPhilosophers
 	private static PrintWriter debugLog;
 	
 	private static ArrayList<String> debugQueue = new ArrayList<String>();
+	
+	private static double percentChancePhilosopherChange = 0.5;
+
 
 	/*
 	 * -------
@@ -61,13 +64,13 @@ public class DiningPhilosophers
 			soMonitor = new Monitor(iPhilosophers);
 
 			// Space for all the philosophers
-			Philosopher aoPhilosophers[] = new Philosopher[iPhilosophers];
+			ArrayList<Philosopher> aoPhilosophers = new ArrayList<Philosopher>();
 
 			// Let 'em sit down
 			for(int j = 0; j < iPhilosophers; j++)
 			{
-				aoPhilosophers[j] = new Philosopher();
-				aoPhilosophers[j].start();
+				aoPhilosophers.add(new Philosopher());
+				aoPhilosophers.get(j).start();
 			}
 
 			System.out.println
@@ -79,7 +82,7 @@ public class DiningPhilosophers
 			// Main waits for all its children to die...
 			// I mean, philosophers to finish their dinner.
 			for(int j = 0; j < iPhilosophers; j++)
-				aoPhilosophers[j].join();
+				aoPhilosophers.get(j).join();
 
 			System.out.println("All philosophers have left. System terminates normally.");
 			writeLog();
@@ -104,10 +107,30 @@ public class DiningPhilosophers
 		poException.printStackTrace(System.err);
 	}
 	
+	public static synchronized void addOrRemovePhilospshers(final int id) {
+		double rand = Math.random();
+		if(rand < percentChancePhilosopherChange) {
+			addPhilosopher(id);
+		}else {
+			rand = Math.random();
+			if(rand < percentChancePhilosopherChange) {
+				removePhilosopher(id);
+			}
+		}
+	}
+	
+	private static synchronized void removePhilosopher(final int id) {
+		
+	}
+
+	private static synchronized void addPhilosopher(final int id) {
+		
+	}
+
 	public static synchronized void logArray() {
-		debugQueue.add(DiningPhilosophers.soMonitor.states.toString());
+		debugQueue.add(DiningPhilosophers.soMonitor.states.toString()+" : "+DiningPhilosophers.soMonitor.nbAvailablePepperShakers);
 		if(DiningPhilosophers.DEV_MODE) {
-			System.out.println("\t\t"+DiningPhilosophers.soMonitor.states);
+			System.out.println("\t\t"+DiningPhilosophers.soMonitor.states+" : "+DiningPhilosophers.soMonitor.nbAvailablePepperShakers);
 		}
 		validateArray();
 	}

@@ -11,8 +11,9 @@ public class Monitor {
 	public ArrayList<State> states;
 	
 	private int sleepingCount;
-	private int talkingCount;
+	private boolean isTalking;
 	private int talkPendingCount;
+	public int nbAvailablePepperShakers = 2;
 
 	/**
 	 * Constructor
@@ -23,7 +24,7 @@ public class Monitor {
 			states.add(State.thinking);
 		}
 		sleepingCount = 0;
-		talkingCount = 0;
+		isTalking = false;
 		talkPendingCount  = 0;
 	}
 
@@ -60,10 +61,10 @@ public class Monitor {
 	 */
 	public synchronized void requestTalk(final int piTID) throws InterruptedException{
 		talkPendingCount++;
-		while(isSomeoneTalking() || sleepingCount > 0 || talkingCount > 0) {
+		while(isSomeoneTalking() || sleepingCount > 0 || isTalking) {
 			wait();
 		}
-		talkingCount++;
+		isTalking = true;
 		states.set(piTID, State.talking);
 	}
 
@@ -73,11 +74,9 @@ public class Monitor {
 	 */
 	public synchronized void endTalk(final int piTID) {
 		talkPendingCount--;
-		talkingCount--;
+		isTalking = false;
 		states.set(piTID, State.thinking);
-		if(talkingCount<=0) {
-			notifyAll();
-		}
+		notifyAll();
 	}
 	
 	public synchronized void requestSleep(final int piTID) throws InterruptedException{
@@ -94,6 +93,19 @@ public class Monitor {
 		if(sleepingCount<0) {
 			notifyAll();
 		}
+	}
+	
+
+	public synchronized void requestPepperShaker(final int piTID) throws InterruptedException {
+		while(nbAvailablePepperShakers<1) {
+			wait();
+		}
+		nbAvailablePepperShakers--;
+	}
+
+	public synchronized void endPepperShaker(final int piTID) {
+		nbAvailablePepperShakers++;
+		notify();
 	}
 	
 	private synchronized int leftPhilosopher(final int i) {

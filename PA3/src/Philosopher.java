@@ -12,9 +12,6 @@ public class Philosopher extends BaseThread {
 	public static final long TIME_TO_WASTE = 1000;
 	
 	private static double percentChanceTalking = 1;
-	
-	private static double percentChancePhilosopherChange = 0.5;
-
 	/**
 	 * The act of eating. - Print the fact that a given phil (their TID) has started
 	 * eating. - yield - Then sleep() for a random interval. - yield - The print
@@ -24,6 +21,7 @@ public class Philosopher extends BaseThread {
 		try {
 			System.out.println(iTID + " has started eating");
 			DiningPhilosophers.logArray();
+			addPepper();
 			yield();
 			sleep();
 			yield();
@@ -61,8 +59,9 @@ public class Philosopher extends BaseThread {
 	 * The act of talking. - Print the fact that a given phil (their TID) has
 	 * started talking. - yield - Say something brilliant at random - yield - The
 	 * print that they are done talking.
+	 * @throws InterruptedException 
 	 */
-	public void talk() {
+	public void talk() throws InterruptedException {
 		System.out.println(iTID + " has started talking");
 		DiningPhilosophers.logArray();
 		yield();
@@ -85,6 +84,20 @@ public class Philosopher extends BaseThread {
 		DiningPhilosophers.logArray();
 		DiningPhilosophers.soMonitor.endSleep(getTID()-1);
 	}
+	
+	public void addPepper() throws InterruptedException {
+		DiningPhilosophers.soMonitor.requestPepperShaker(getTID()-1);
+		System.out.println(iTID + " takes a pepper shaker");
+		DiningPhilosophers.logArray();
+		sleep((long) (Math.random() * TIME_TO_WASTE));
+		System.out.println(iTID + " puts the pepper shaker back");
+		DiningPhilosophers.logArray();
+		DiningPhilosophers.soMonitor.endPepperShaker(getTID()-1);
+	}
+	
+	public synchronized void setTID(int i) {
+		this.iTID = i;
+	}
 
 	/**
 	 * No, this is not the act of running, just the overridden Thread.run()
@@ -98,11 +111,6 @@ public class Philosopher extends BaseThread {
 
 				think();
 
-				/*
-				 * TODO: A decision is made at random whether this particular philosopher is
-				 * about to say something terribly useful.
-				 * 
-				 */
 				double rand = Math.random();
 				if (rand < percentChanceTalking) {
 					DiningPhilosophers.soMonitor.requestTalk(getTID()-1);
@@ -110,17 +118,7 @@ public class Philosopher extends BaseThread {
 					DiningPhilosophers.soMonitor.endTalk(getTID()-1);
 				}
 
-				yield();
-				
-//				rand = Math.random();
-//				if(rand < percentChancePhilosopherChange) {
-//					DiningPhilosophers.soMonitor.addPhilosopher(getTID()-1);
-//				}else {
-//					rand = Math.random();
-//					if(rand < percentChancePhilosopherChange) {
-//						DiningPhilosophers.soMonitor.removePhilosopher(getTID()-1);
-//					}
-//				}	
+				yield();	
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -131,8 +129,9 @@ public class Philosopher extends BaseThread {
 	/**
 	 * Prints out a phrase from the array of phrases at random. Feel free to add
 	 * your own phrases.
+	 * @throws InterruptedException 
 	 */
-	public void saySomething() {
+	public void saySomething() throws InterruptedException {
 		String[] astrPhrases = { "Eh, it's not easy to be a philosopher: eat, think, talk, eat...",
 				"You know, true is false and false is true if you think of it",
 				"2 + 2 = 5 for extremely large values of 2...", "If thee cannot speak, thee must be silent",
@@ -143,7 +142,7 @@ public class Philosopher extends BaseThread {
 				"Love is a serious mental disease.",
 				"Man - a being in search of meaning.",
 				"One of the penalties for refusing to participate in politics is that you end up being governed by your inferiors."};
-
+		sleep((long) (Math.random() * TIME_TO_WASTE));
 		System.out.println(
 				"Philosopher " + getTID() + " says: " + astrPhrases[(int) (Math.random() * astrPhrases.length)]);
 	}
