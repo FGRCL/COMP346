@@ -12,6 +12,15 @@ public class Philosopher extends BaseThread {
 	public static final long TIME_TO_WASTE = 1000;
 	
 	private static double percentChanceTalking = 1;
+	
+	public Philosopher(int id) {
+		super(id);
+	}
+
+	public Philosopher() {
+		super();
+	}
+
 	/**
 	 * The act of eating. - Print the fact that a given phil (their TID) has started
 	 * eating. - yield - Then sleep() for a random interval. - yield - The print
@@ -95,8 +104,12 @@ public class Philosopher extends BaseThread {
 		DiningPhilosophers.soMonitor.endPepperShaker(getTID()-1);
 	}
 	
-	public synchronized void setTID(int i) {
-		this.iTID = i;
+	public synchronized void incrementTID() {
+		this.iTID++;
+	}
+	
+	public synchronized void decrementTID() {
+		this.iTID--;
 	}
 
 	/**
@@ -117,7 +130,8 @@ public class Philosopher extends BaseThread {
 					talk();
 					DiningPhilosophers.soMonitor.endTalk(getTID()-1);
 				}
-
+				
+				//DiningPhilosophers.addOrRemovePhilospshers(getTID());
 				yield();	
 			}
 		}catch (Exception e) {

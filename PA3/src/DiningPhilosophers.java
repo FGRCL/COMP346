@@ -40,6 +40,8 @@ public class DiningPhilosophers
 	private static ArrayList<String> debugQueue = new ArrayList<String>();
 	
 	private static double percentChancePhilosopherChange = 0.5;
+	
+	private static ArrayList<Philosopher> aoPhilosophers;
 
 
 	/*
@@ -64,7 +66,7 @@ public class DiningPhilosophers
 			soMonitor = new Monitor(iPhilosophers);
 
 			// Space for all the philosophers
-			ArrayList<Philosopher> aoPhilosophers = new ArrayList<Philosopher>();
+			aoPhilosophers = new ArrayList<Philosopher>();
 
 			// Let 'em sit down
 			for(int j = 0; j < iPhilosophers; j++)
@@ -120,11 +122,22 @@ public class DiningPhilosophers
 	}
 	
 	private static synchronized void removePhilosopher(final int id) {
-		
+		System.out.println(id + " bids farewell to the other philososphers.");
+		aoPhilosophers.remove(id-1);
+		for(int i=(id-1); i<aoPhilosophers.size(); i++) {
+			aoPhilosophers.get(i).decrementTID();
+		}
+		soMonitor.states.remove(id-1);
 	}
 
 	private static synchronized void addPhilosopher(final int id) {
-		
+		System.out.println(id + " invites a new philosopher to the table.");
+		soMonitor.states.add(id-1, Monitor.State.thinking);
+		aoPhilosophers.add(id-1, new Philosopher(id));
+		for(int i=id; i<aoPhilosophers.size(); i++) {
+			aoPhilosophers.get(i).incrementTID();
+		}
+		aoPhilosophers.get(id-1).start();
 	}
 
 	public static synchronized void logArray() {
