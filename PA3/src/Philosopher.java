@@ -9,7 +9,7 @@ public class Philosopher extends BaseThread {
 	/**
 	 * Max time an action can take (in milliseconds)
 	 */
-	public static final long TIME_TO_WASTE = 1;
+	public static final long TIME_TO_WASTE = 1000;
 	
 	private static double percentChanceTalking = 1;
 	
@@ -95,13 +95,13 @@ public class Philosopher extends BaseThread {
 	}
 	
 	public void addPepper() throws InterruptedException {
-		DiningPhilosophers.soMonitor.requestPepperShaker(this);
+		DiningPhilosophers.soMonitor.requestPepperShaker();
 		System.out.println(iTID + " takes a pepper shaker");
 		DiningPhilosophers.logArray();
 		sleep((long) (Math.random() * TIME_TO_WASTE));
 		System.out.println(iTID + " puts the pepper shaker back");
 		DiningPhilosophers.logArray();
-		DiningPhilosophers.soMonitor.endPepperShaker(this);
+		DiningPhilosophers.soMonitor.endPepperShaker();
 	}
 	
 	public synchronized void incrementTID() {

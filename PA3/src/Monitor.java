@@ -97,16 +97,16 @@ public class Monitor {
 	}
 	
 
-	public synchronized void requestPepperShaker(final Philosopher phil) throws InterruptedException {
+	public synchronized void requestPepperShaker() throws InterruptedException {
 		while(nbAvailablePepperShakers<1) {
 			wait();
 		}
 		nbAvailablePepperShakers--;
 	}
 
-	public synchronized void endPepperShaker(final int piTID) {
+	public synchronized void endPepperShaker() {
 		nbAvailablePepperShakers++;
-		notify();
+		notifyAll();
 	}
 	
 	private synchronized int leftPhilosopher(final int i) {

@@ -1,114 +1,52 @@
-[eating, hungry, hungry, hungry] : 2
-[eating, hungry, hungry, hungry] : 1
-[eating, hungry, hungry, hungry] : 1
+[eating, thinking, thinking, thinking] : 2
+[eating, hungry, thinking, thinking] : 1
+[eating, hungry, hungry, thinking] : 1
 [sleeping, hungry, hungry, hungry] : 2
-[sleeping, eating, hungry, hungry] : 2
+[sleeping, hungry, hungry, hungry] : 2
+[thinking, hungry, hungry, hungry] : 2
 [thinking, eating, hungry, hungry] : 2
 [thinking, eating, hungry, hungry] : 1
 [thinking, eating, hungry, hungry] : 1
 [thinking, eating, hungry, hungry] : 1
-[sleeping, eating, hungry, hungry] : 1
 [sleeping, sleeping, hungry, hungry] : 2
 [sleeping, sleeping, hungry, hungry] : 2
 [sleeping, sleeping, hungry, hungry] : 2
-[thinking, sleeping, hungry, hungry] : 2
+[sleeping, sleeping, hungry, hungry] : 2
 [thinking, thinking, hungry, hungry] : 2
-[talking, thinking, hungry, hungry] : 2
-[talking, thinking, eating, hungry] : 2
+[thinking, thinking, eating, hungry] : 2
 [talking, thinking, eating, hungry] : 2
 [talking, thinking, eating, hungry] : 1
 [talking, thinking, eating, hungry] : 1
 [talking, thinking, eating, hungry] : 1
+[talking, thinking, eating, hungry] : 1
 [talking, thinking, eating, hungry] : 2
-[thinking, sleeping, eating, hungry] : 2
-[thinking, sleeping, sleeping, hungry] : 2
-[thinking, thinking, sleeping, hungry] : 2
 [eating, thinking, sleeping, hungry] : 2
 [eating, thinking, sleeping, hungry] : 1
-[eating, thinking, thinking, hungry] : 1
-[eating, thinking, thinking, hungry] : 1
 [eating, thinking, sleeping, hungry] : 1
-[eating, thinking, sleeping, hungry] : 1
-[eating, thinking, sleeping, hungry] : 1
+[eating, sleeping, sleeping, hungry] : 1
+[eating, sleeping, sleeping, hungry] : 1
 [eating, thinking, sleeping, hungry] : 1
 [eating, thinking, thinking, hungry] : 1
-[eating, talking, thinking, hungry] : 2
-[eating, talking, thinking, hungry] : 2
-[eating, talking, thinking, hungry] : 2
-[eating, thinking, talking, hungry] : 2
-[eating, hungry, talking, hungry] : 2
-[sleeping, eating, hungry, hungry] : 2
-[sleeping, eating, hungry, hungry] : 2
-[sleeping, eating, hungry, hungry] : 1
-[sleeping, eating, hungry, hungry] : 1
-[thinking, eating, hungry, hungry] : 1
-[thinking, eating, hungry, hungry] : 2
-[thinking, sleeping, eating, hungry] : 2
-[thinking, sleeping, eating, hungry] : 2
-[thinking, sleeping, eating, hungry] : 1
-[thinking, sleeping, eating, hungry] : 1
-[sleeping, sleeping, eating, hungry] : 1
-[sleeping, sleeping, eating, hungry] : 2
-[sleeping, sleeping, eating, hungry] : 2
-[sleeping, thinking, sleeping, hungry] : 2
-[thinking, thinking, sleeping, hungry] : 2
-[thinking, thinking, sleeping, eating] : 2
-[thinking, thinking, sleeping, eating] : 2
-[thinking, thinking, sleeping, eating] : 1
-[thinking, thinking, sleeping, eating] : 1
-[thinking, thinking, sleeping, eating] : 1
-[thinking, thinking, sleeping, eating] : 1
-[thinking, thinking, thinking, eating] : 1
-[talking, thinking, thinking, eating] : 2
-[talking, thinking, thinking, eating] : 2
-[talking, thinking, thinking, eating] : 2
-[talking, thinking, thinking, eating] : 2
-[hungry, sleeping, sleeping, eating] : 2
-[hungry, sleeping, sleeping, eating] : 2
-[hungry, sleeping, sleeping, eating] : 2
-[hungry, sleeping, thinking, sleeping] : 2
-[hungry, thinking, thinking, sleeping] : 2
-[hungry, thinking, thinking, sleeping] : 2
-[hungry, thinking, thinking, sleeping] : 2
-[hungry, thinking, thinking, sleeping] : 2
-[hungry, thinking, thinking, thinking] : 2
-[hungry, thinking, thinking, thinking] : 2
-[hungry, talking, thinking, thinking] : 2
-[eating, talking, thinking, thinking] : 2
-[eating, talking, thinking, thinking] : 1
-[eating, talking, thinking, thinking] : 1
-[eating, talking, thinking, thinking] : 2
-[eating, hungry, talking, thinking] : 2
-[eating, hungry, talking, thinking] : 2
-[sleeping, hungry, thinking, sleeping] : 2
-[sleeping, hungry, thinking, sleeping] : 2
-[sleeping, hungry, thinking, sleeping] : 2
-[sleeping, hungry, hungry, thinking] : 2
-[thinking, hungry, hungry, thinking] : 2
-[thinking, hungry, hungry, talking] : 2
-[thinking, hungry, hungry, talking] : 2
-[thinking, eating, hungry, talking] : 2
-[thinking, eating, hungry, talking] : 1
-[thinking, eating, hungry, talking] : 1
-[thinking, eating, hungry, talking] : 1
-[thinking, eating, hungry, talking] : 2
-[thinking, sleeping, hungry, thinking] : 2
-[sleeping, sleeping, eating, thinking] : 2
-[sleeping, sleeping, eating, thinking] : 1
-[sleeping, sleeping, eating, thinking] : 1
-[sleeping, sleeping, eating, hungry] : 1
-[sleeping, thinking, eating, hungry] : 1
-[sleeping, thinking, sleeping, hungry] : 2
-[sleeping, thinking, sleeping, eating] : 2
-[thinking, thinking, sleeping, eating] : 2
-[thinking, thinking, sleeping, eating] : 1
-[thinking, thinking, sleeping, eating] : 1
-[thinking, sleeping, sleeping, eating] : 1
-[thinking, sleeping, sleeping, eating] : 1
-[thinking, sleeping, sleeping, sleeping] : 2
-[thinking, sleeping, sleeping, sleeping] : 2
-[thinking, sleeping, sleeping, thinking] : 2
-[thinking, sleeping, sleeping, thinking] : 2
+[sleeping, thinking, thinking, hungry] : 2
+[sleeping, thinking, thinking, hungry] : 2
+[thinking, thinking, thinking, hungry] : 2
+[thinking, thinking, thinking, hungry] : 2
+[thinking, talking, thinking, eating] : 2
+[thinking, talking, thinking, eating] : 2
+[thinking, talking, thinking, eating] : 2
+[thinking, talking, thinking, eating] : 2
+[thinking, talking, thinking, eating] : 1
+[thinking, talking, thinking, eating] : 1
+[thinking, talking, thinking, eating] : 1
+[thinking, talking, thinking, eating] : 2
+[thinking, eating, thinking, sleeping] : 2
+[thinking, eating, thinking, sleeping] : 1
+[thinking, eating, sleeping, sleeping] : 1
+[sleeping, eating, sleeping, sleeping] : 1
+[sleeping, eating, sleeping, sleeping] : 1
+[sleeping, eating, sleeping, sleeping] : 1
+[thinking, eating, sleeping, sleeping] : 1
+[thinking, eating, sleeping, sleeping] : 2
 [thinking, sleeping, sleeping, thinking] : 2
 [thinking, sleeping, sleeping, thinking] : 2
 [thinking, sleeping, thinking, thinking] : 2
@@ -116,389 +54,475 @@
 [thinking, sleeping, thinking, thinking] : 2
 [thinking, sleeping, thinking, thinking] : 2
 [thinking, thinking, thinking, thinking] : 2
-[thinking, talking, thinking, thinking] : 2
-[thinking, talking, thinking, thinking] : 2
-[thinking, eating, thinking, thinking, thinking] : 2
-[talking, eating, hungry, thinking, thinking] : 1
-[talking, eating, hungry, thinking, thinking] : 1
-[talking, eating, hungry, thinking, thinking] : 1
-[talking, eating, hungry, thinking, thinking] : 2
-[hungry, eating, hungry, thinking, sleeping] : 2
-[hungry, eating, hungry, thinking, sleeping] : 2
-[hungry, eating, hungry, thinking, thinking] : 2
-[hungry, eating, hungry, thinking, talking] : 2
-[hungry, eating, hungry, thinking, talking] : 2
-[eating, sleeping, eating, sleeping, hungry] : 2
-[eating, sleeping, eating, sleeping, hungry] : 2
-[eating, sleeping, eating, sleeping, hungry] : 1
-[eating, sleeping, eating, sleeping, hungry] : 1
-[eating, sleeping, sleeping, sleeping, hungry] : 2
-[eating, sleeping, sleeping, sleeping, hungry] : 2
-[eating, sleeping, thinking, sleeping, hungry] : 2
-[eating, sleeping, thinking, sleeping, hungry] : 1
-[eating, sleeping, thinking, sleeping, hungry] : 1
-[eating, sleeping, thinking, sleeping, hungry] : 1
-[eating, sleeping, thinking, sleeping, hungry] : 1
-[eating, thinking, thinking, sleeping, hungry] : 1
-[eating, thinking, sleeping, sleeping, hungry] : 1
-[sleeping, thinking, sleeping, sleeping, hungry] : 2
-[sleeping, thinking, sleeping, thinking, hungry] : 2
-[sleeping, thinking, sleeping, thinking, hungry] : 2
-[sleeping, thinking, sleeping, thinking, hungry] : 2
-[sleeping, thinking, sleeping, thinking, eating] : 2
-[thinking, thinking, sleeping, thinking, eating] : 2
-[thinking, thinking, thinking, thinking, eating] : 2
-[thinking, thinking, thinking, talking, eating] : 2
-[thinking, thinking, thinking, talking, eating] : 2
-[thinking, thinking, thinking, hungry, eating] : 2
-[thinking, thinking, talking, hungry, eating] : 2
-[thinking, thinking, talking, hungry, eating] : 2
-[thinking, thinking, talking, hungry, eating] : 2
-[thinking, thinking, talking, hungry, eating] : 2
-[thinking, thinking, talking, hungry, eating] : 1
-[thinking, thinking, talking, hungry, eating] : 1
-[thinking, thinking, talking, hungry, eating] : 1
-[thinking, thinking, talking, hungry, eating] : 2
-[sleeping, sleeping, eating, hungry, sleeping] : 2
-[sleeping, sleeping, eating, hungry, sleeping] : 2
-[sleeping, sleeping, eating, hungry, sleeping] : 1
-[sleeping, sleeping, eating, hungry, sleeping] : 1
-[sleeping, thinking, eating, hungry, sleeping] : 1
-[sleeping, thinking, eating, hungry, sleeping] : 1
-[sleeping, thinking, eating, hungry, sleeping] : 1
-[sleeping, thinking, eating, hungry, thinking] : 1
-[sleeping, thinking, eating, hungry, thinking] : 1
-[sleeping, thinking, eating, hungry, thinking] : 1
-[thinking, thinking, eating, hungry, thinking] : 1
-[thinking, thinking, eating, hungry, thinking] : 1
-[thinking, thinking, eating, hungry, thinking] : 2
-[talking, thinking, eating, hungry, thinking] : 2
-[talking, thinking, eating, hungry, thinking] : 2
-[eating, talking, eating, hungry, thinking] : 2
-[eating, talking, eating, hungry, thinking] : 2
-[eating, talking, eating, hungry, thinking] : 1
-[eating, talking, eating, hungry, thinking] : 1
-[eating, talking, eating, hungry, thinking] : 2
-[sleeping, thinking, eating, hungry, thinking] : 2
-[sleeping, thinking, sleeping, hungry, sleeping] : 2
-[sleeping, thinking, sleeping, hungry, sleeping] : 2
-[sleeping, thinking, sleeping, hungry, sleeping] : 2
-[thinking, thinking, sleeping, hungry, sleeping] : 2
-[thinking, thinking, sleeping, hungry, thinking] : 2
-[thinking, eating, thinking, hungry, thinking] : 2
-[thinking, eating, thinking, hungry, thinking] : 1
-[thinking, eating, thinking, hungry, thinking] : 1
-[thinking, eating, thinking, eating, thinking] : 1
-[thinking, eating, thinking, eating, thinking] : 0
-[thinking, eating, thinking, eating, thinking] : 0
-[thinking, eating, thinking, eating, thinking] : 0
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 1
-[thinking, eating, thinking, eating, talking] : 2
-[thinking, sleeping, thinking, sleeping, thinking] : 2
-[thinking, sleeping, thinking, sleeping, thinking] : 2
-[thinking, sleeping, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, sleeping, thinking, thinking] : 2
-[sleeping, thinking, sleeping, thinking, eating] : 2
-[sleeping, thinking, sleeping, thinking, eating] : 2
-[sleeping, thinking, sleeping, thinking, eating] : 2
-[sleeping, thinking, sleeping, thinking, eating] : 2
-[sleeping, thinking, sleeping, thinking, eating] : 2
-[thinking, thinking, thinking, thinking, eating] : 1
-[thinking, thinking, thinking, thinking, eating] : 1
-[talking, thinking, thinking, thinking, eating] : 1
-[talking, thinking, thinking, thinking, eating] : 1
-[talking, thinking, thinking, thinking, eating] : 1
-[talking, thinking, thinking, thinking, eating] : 2
-[talking, thinking, thinking, thinking, eating] : 2
-[talking, thinking, thinking, thinking, eating] : 2
-[thinking, thinking, talking, thinking, eating] : 2
-[hungry, thinking, talking, thinking, eating] : 2
-[hungry, sleeping, thinking, sleeping, eating] : 2
-[hungry, sleeping, thinking, sleeping, eating] : 2
-[hungry, sleeping, thinking, sleeping, sleeping] : 2
-[hungry, sleeping, thinking, sleeping, sleeping] : 2
-[hungry, sleeping, thinking, thinking, sleeping] : 2
-[hungry, thinking, thinking, thinking, sleeping] : 2
-[hungry, thinking, eating, thinking, thinking] : 2
-[hungry, thinking, eating, thinking, thinking] : 1
-[hungry, thinking, eating, thinking, thinking] : 1
-[hungry, thinking, eating, talking, thinking] : 1
-[hungry, thinking, eating, talking, thinking] : 1
-[hungry, thinking, eating, talking, thinking] : 1
-[eating, thinking, eating, talking, thinking] : 1
-[eating, thinking, eating, talking, thinking] : 0
-[eating, thinking, eating, talking, thinking] : 0
-[eating, thinking, eating, talking, thinking] : 0
-[eating, thinking, eating, talking, thinking] : 1
-[eating, thinking, eating, talking, thinking] : 2
-[eating, talking, eating, hungry, thinking] : 2
-[eating, talking, eating, hungry, thinking] : 2
-[eating, thinking, eating, hungry, sleeping] : 2
-[eating, thinking, sleeping, hungry, sleeping] : 2
-[sleeping, thinking, sleeping, hungry, sleeping] : 2
-[sleeping, thinking, sleeping, hungry, sleeping] : 2
-[sleeping, thinking, sleeping, hungry, thinking] : 2
-[sleeping, thinking, thinking, hungry, thinking] : 2
-[thinking, eating, thinking, hungry, thinking] : 2
-[thinking, eating, thinking, hungry, thinking] : 1
-[thinking, eating, thinking, hungry, talking] : 1
-[thinking, eating, thinking, hungry, talking] : 1
-[thinking, eating, thinking, eating, talking] : 1
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 0
-[thinking, eating, thinking, eating, talking] : 1
-[thinking, eating, thinking, eating, talking] : 2
-[sleeping, sleeping, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, sleeping, sleeping, eating] : 2
-[sleeping, sleeping, sleeping, sleeping, eating] : 1
-[sleeping, sleeping, sleeping, sleeping, eating] : 1
-[sleeping, thinking, sleeping, sleeping, eating] : 1
-[sleeping, thinking, thinking, sleeping, eating] : 1
-[sleeping, thinking, thinking, thinking, eating] : 1
-[sleeping, thinking, thinking, thinking, eating] : 2
-[sleeping, thinking, thinking, thinking, eating] : 2
-[sleeping, thinking, thinking, thinking, sleeping] : 2
-[sleeping, thinking, thinking, thinking, sleeping] : 2
-[thinking, thinking, thinking, thinking, sleeping] : 2
-[thinking, thinking, thinking, thinking, sleeping] : 2
-[thinking, thinking, thinking, thinking, sleeping] : 2
-[thinking, thinking, thinking, thinking, sleeping] : 2
-[thinking, thinking, thinking, thinking, sleeping] : 2
-[thinking, thinking, thinking, thinking, thinking] : 2
-[thinking, thinking, talking, thinking, thinking] : 2
-[thinking, thinking, talking, thinking, thinking] : 2
-[thinking, thinking, talking, thinking, thinking] : 2
+[thinking, thinking, talking, thinking] : 2
+[thinking, thinking, talking, thinking] : 2
+[thinking, thinking, talking, thinking] : 2
+[thinking, thinking, talking, thinking] : 2
 [talking, thinking, thinking, thinking] : 2
-[talking, thinking, thinking, thinking] : 2
+[talking, thinking, eating, thinking] : 2
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 2
+[eating, sleeping, sleeping, sleeping] : 2
+[eating, sleeping, sleeping, sleeping] : 2
+[eating, sleeping, sleeping, sleeping] : 1
+[eating, sleeping, sleeping, sleeping] : 1
+[eating, sleeping, sleeping, sleeping] : 1
+[eating, sleeping, sleeping, thinking] : 1
+[eating, sleeping, thinking, thinking] : 1
+[eating, sleeping, thinking, thinking] : 1
+[eating, sleeping, thinking, thinking] : 1
+[eating, sleeping, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, talking, thinking, thinking] : 2
+[eating, talking, thinking, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, eating, thinking, hungry] : 2
+[sleeping, eating, thinking, hungry] : 1
+[sleeping, eating, thinking, hungry] : 1
+[thinking, eating, thinking, hungry] : 1
+[thinking, eating, talking, hungry] : 1
+[thinking, eating, talking, hungry] : 1
+[thinking, eating, talking, eating] : 2
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 2
+[thinking, eating, thinking, sleeping] : 2
+[sleeping, eating, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, thinking] : 2
+[thinking, sleeping, thinking, thinking] : 2
+[thinking, thinking, eating, thinking] : 2
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 2
+[thinking, thinking, sleeping, thinking] : 2
+[thinking, sleeping, sleeping, thinking] : 2
 [thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, thinking, sleeping] : 2
+[thinking, sleeping, thinking, thinking] : 2
+[eating, thinking, thinking, thinking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 2
+[eating, talking, thinking, thinking] : 2
+[eating, talking, thinking, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, thinking, thinking, hungry] : 2
+[thinking, eating, thinking, hungry] : 2
+[thinking, eating, thinking, hungry] : 1
+[thinking, eating, thinking, hungry] : 1
+[thinking, eating, talking, hungry] : 1
+[thinking, eating, talking, hungry] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 0
+[thinking, eating, talking, eating] : 0
+[thinking, eating, talking, eating] : 0
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 2
+[thinking, eating, thinking, sleeping] : 2
+[sleeping, eating, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[thinking, sleeping, thinking, sleeping] : 2
+[thinking, sleeping, eating, thinking] : 2
+[thinking, thinking, eating, thinking] : 2
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 2
+[talking, thinking, eating, thinking] : 2
+[thinking, thinking, sleeping, sleeping] : 2
 [thinking, sleeping, sleeping, sleeping] : 2
 [thinking, sleeping, sleeping, sleeping] : 2
 [eating, sleeping, sleeping, sleeping] : 2
 [eating, sleeping, sleeping, sleeping] : 1
-[eating, sleeping, thinking, sleeping] : 1
-[eating, sleeping, thinking, thinking] : 1
-[eating, sleeping, thinking, thinking] : 1
+[eating, sleeping, sleeping, sleeping] : 1
+[eating, sleeping, sleeping, thinking] : 1
+[eating, thinking, sleeping, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, talking, thinking, hungry] : 2
+[eating, talking, thinking, hungry] : 2
+[sleeping, thinking, thinking, hungry] : 2
+[sleeping, thinking, thinking, eating] : 2
+[sleeping, thinking, thinking, eating] : 1
+[sleeping, thinking, sleeping, eating] : 1
+[sleeping, thinking, sleeping, eating] : 1
+[thinking, thinking, sleeping, eating] : 1
+[thinking, thinking, sleeping, eating] : 2
+[thinking, eating, thinking, eating] : 2
+[thinking, eating, thinking, eating] : 1
+[thinking, eating, thinking, eating] : 1
+[thinking, eating, thinking, eating] : 1
+[thinking, eating, thinking, sleeping] : 1
+[thinking, eating, thinking, sleeping] : 1
+[thinking, eating, thinking, sleeping] : 1
+[thinking, eating, thinking, sleeping] : 2
+[thinking, eating, thinking, thinking] : 2
+[thinking, eating, talking, thinking] : 2
+[thinking, eating, talking, thinking] : 2
+[thinking, eating, talking, thinking] : 2
+[thinking, eating, thinking, sleeping] : 2
+[sleeping, eating, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, thinking] : 2
+[thinking, sleeping, thinking, thinking] : 2
+[thinking, thinking, eating, thinking] : 2
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, talking] : 1
+[thinking, thinking, eating, talking] : 1
+[thinking, thinking, eating, talking] : 1
+[thinking, thinking, eating, talking] : 1
+[thinking, thinking, eating, talking] : 1
+[thinking, thinking, eating, talking] : 2
+[talking, thinking, eating, thinking] : 2
+[talking, thinking, eating, hungry] : 2
+[thinking, sleeping, eating, hungry] : 2
+[thinking, sleeping, sleeping, hungry] : 2
+[thinking, sleeping, sleeping, hungry] : 2
+[hungry, thinking, sleeping, hungry] : 2
+[eating, thinking, thinking, hungry] : 2
+[eating, thinking, thinking, hungry] : 1
+[eating, thinking, thinking, hungry] : 1
+[eating, talking, thinking, hungry] : 1
+[eating, talking, thinking, hungry] : 1
+[eating, talking, thinking, hungry] : 1
+[eating, talking, thinking, hungry] : 2
+[eating, talking, thinking, hungry] : 2
+[eating, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, eating] : 2
+[sleeping, thinking, sleeping, eating] : 2
+[sleeping, eating, thinking, eating] : 2
+[sleeping, eating, thinking, eating] : 1
+[sleeping, eating, thinking, eating] : 1
+[thinking, eating, thinking, eating] : 1
+[thinking, eating, thinking, eating] : 0
+[thinking, eating, thinking, eating] : 0
+[thinking, eating, thinking, eating] : 0
+[thinking, eating, thinking, eating] : 0
+[thinking, eating, thinking, eating] : 1
+[thinking, eating, talking, eating] : 2
+[thinking, eating, talking, eating] : 2
+[thinking, eating, talking, eating] : 2
+[sleeping, eating, thinking, eating] : 2
+[sleeping, eating, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[thinking, sleeping, thinking, sleeping] : 2
+[thinking, sleeping, thinking, thinking] : 2
+[thinking, thinking, eating, thinking] : 2
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 2
+[thinking, thinking, sleeping, thinking] : 2
+[thinking, sleeping, sleeping, thinking] : 2
+[thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, sleeping, thinking] : 2
+[thinking, thinking, sleeping, thinking] : 2
+[eating, thinking, thinking, thinking] : 2
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 2
+[eating, talking, thinking, thinking] : 2
+[eating, talking, thinking, hungry] : 2
+[eating, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, thinking, thinking, hungry] : 2
+[thinking, eating, thinking, hungry] : 2
+[thinking, eating, thinking, hungry] : 1
+[thinking, eating, thinking, hungry] : 1
+[thinking, eating, talking, hungry] : 1
+[thinking, eating, talking, hungry] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 0
+[thinking, eating, talking, eating] : 0
+[thinking, eating, talking, eating] : 0
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 2
+[thinking, eating, thinking, sleeping] : 2
+[thinking, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, thinking] : 2
+[sleeping, thinking, thinking, thinking] : 2
+[thinking, thinking, eating, thinking] : 2
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 2
+[thinking, thinking, sleeping, thinking] : 2
+[thinking, thinking, sleeping, sleeping] : 2
+[thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, thinking, sleeping] : 2
+[thinking, sleeping, thinking, thinking] : 2
+[eating, thinking, thinking, thinking] : 2
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 2
+[eating, talking, thinking, thinking] : 2
+[eating, talking, thinking, hungry] : 2
+[eating, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, thinking, thinking, hungry] : 2
+[thinking, eating, thinking, hungry] : 2
+[thinking, eating, thinking, hungry] : 1
+[thinking, eating, thinking, hungry] : 1
+[thinking, eating, talking, hungry] : 1
+[thinking, eating, talking, hungry] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 0
+[thinking, eating, talking, eating] : 0
+[thinking, eating, talking, eating] : 0
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 2
+[thinking, eating, thinking, sleeping] : 2
+[thinking, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, thinking] : 2
+[sleeping, thinking, thinking, thinking] : 2
+[thinking, thinking, eating, thinking] : 2
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 2
+[thinking, thinking, sleeping, thinking] : 2
+[thinking, sleeping, sleeping, thinking] : 2
+[thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, thinking, sleeping] : 2
+[thinking, thinking, thinking, sleeping] : 2
+[eating, thinking, thinking, thinking] : 2
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
 [eating, thinking, thinking, thinking] : 1
 [eating, talking, thinking, thinking] : 1
 [eating, talking, thinking, thinking] : 1
 [eating, talking, thinking, thinking] : 1
-[eating, thinking, talking, thinking] : 1
-[eating, thinking, talking, thinking] : 1
-[eating, hungry, talking, thinking] : 1
-[eating, hungry, talking, thinking] : 2
-[eating, hungry, hungry, talking] : 2
-[eating, hungry, hungry, talking] : 2
-[sleeping, hungry, hungry, hungry] : 2
-[sleeping, hungry, hungry, hungry] : 2
-[thinking, hungry, hungry, hungry] : 2
-[thinking, hungry, hungry, hungry] : 2
-[sleeping, hungry, hungry, hungry] : 2
-[sleeping, hungry, hungry, hungry] : 2
-[thinking, eating, hungry, hungry] : 2
-[thinking, eating, hungry, hungry] : 1
-[thinking, eating, hungry, hungry] : 1
-[talking, eating, hungry, hungry] : 1
-[talking, eating, hungry, hungry] : 1
-[talking, eating, hungry, hungry] : 2
-[thinking, sleeping, hungry, hungry] : 2
-[thinking, sleeping, eating, hungry] : 2
-[thinking, sleeping, eating, hungry] : 1
-[eating, sleeping, eating, hungry] : 1
-[eating, sleeping, eating, hungry] : 2
-[eating, sleeping, eating, hungry] : 1
-[eating, sleeping, eating, hungry] : 1
-[eating, thinking, sleeping, hungry] : 1
-[eating, thinking, sleeping, hungry] : 1
-[eating, thinking, sleeping, hungry] : 2
-[eating, thinking, sleeping, hungry] : 2
-[eating, thinking, sleeping, hungry] : 2
-[sleeping, thinking, thinking, hungry] : 2
-[sleeping, sleeping, thinking, hungry] : 2
-[sleeping, sleeping, thinking, hungry] : 2
-[sleeping, sleeping, thinking, eating] : 2
-[sleeping, sleeping, thinking, eating] : 1
-[sleeping, sleeping, thinking, eating] : 1
-[sleeping, sleeping, sleeping, eating] : 1
-[sleeping, thinking, sleeping, eating] : 1
-[thinking, thinking, sleeping, eating] : 1
-[thinking, thinking, sleeping, eating] : 1
-[thinking, thinking, thinking, eating] : 1
-[thinking, thinking, talking, eating] : 1
-[thinking, thinking, talking, eating] : 1
-[thinking, thinking, hungry, eating] : 1
-[thinking, thinking, hungry, sleeping] : 2
-[thinking, thinking, hungry, sleeping] : 2
-[thinking, thinking, hungry, thinking] : 2
-[thinking, thinking, eating, thinking] : 2
-[thinking, thinking, eating, thinking] : 2
-[sleeping, thinking, eating, thinking] : 2
-[sleeping, thinking, eating, thinking] : 2
-[thinking, thinking, eating, thinking] : 2
-[talking, thinking, eating, thinking] : 2
-[talking, thinking, eating, thinking] : 2
-[eating, thinking, eating, thinking] : 2
-[eating, thinking, eating, thinking] : 1
-[eating, thinking, eating, thinking] : 1
-[eating, talking, eating, thinking] : 1
-[eating, talking, eating, thinking] : 1
-[eating, talking, eating, thinking] : 1
-[eating, talking, eating, thinking] : 1
-[eating, talking, eating, thinking] : 1
-[eating, talking, eating, thinking] : 1
-[sleeping, hungry, eating, sleeping] : 1
-[sleeping, hungry, eating, sleeping] : 1
-[sleeping, hungry, eating, sleeping] : 1
-[sleeping, hungry, eating, sleeping] : 2
-[thinking, hungry, eating, sleeping] : 2
-[thinking, hungry, sleeping, thinking] : 2
-[thinking, hungry, sleeping, thinking] : 2
-[thinking, eating, sleeping, thinking] : 2
-[thinking, eating, sleeping, thinking] : 1
-[thinking, eating, sleeping, thinking] : 1
-[thinking, eating, sleeping, thinking] : 1
-[thinking, eating, sleeping, thinking] : 1
-[thinking, eating, thinking, thinking] : 1
-[thinking, eating, thinking, talking] : 2
-[thinking, eating, thinking, talking] : 2
-[thinking, eating, thinking, talking] : 2
-[thinking, eating, thinking, talking] : 2
-[thinking, eating, sleeping, thinking] : 2
-[thinking, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, sleeping, thinking] : 2
-[sleeping, sleeping, thinking, thinking] : 2
+[eating, talking, thinking, thinking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, hungry, thinking, talking] : 2
+[eating, hungry, sleeping, thinking] : 2
+[sleeping, hungry, sleeping, thinking] : 2
+[sleeping, hungry, sleeping, thinking] : 2
+[sleeping, hungry, thinking, eating] : 2
+[sleeping, hungry, thinking, eating] : 2
+[sleeping, hungry, thinking, eating] : 1
+[sleeping, hungry, thinking, eating] : 1
+[thinking, hungry, thinking, eating] : 1
+[thinking, hungry, talking, eating] : 2
+[thinking, eating, talking, eating] : 2
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 2
+[thinking, sleeping, thinking, eating] : 2
+[thinking, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, thinking, thinking, sleeping] : 2
 [sleeping, thinking, thinking, thinking] : 2
+[thinking, thinking, eating, thinking] : 2
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 2
+[thinking, thinking, sleeping, thinking] : 2
+[thinking, thinking, sleeping, sleeping] : 2
+[thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, sleeping, sleeping] : 2
+[thinking, sleeping, thinking, sleeping] : 2
+[thinking, sleeping, thinking, thinking] : 2
+[eating, thinking, thinking, thinking] : 2
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, thinking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 1
+[eating, thinking, thinking, talking] : 2
+[eating, thinking, thinking, talking] : 2
+[eating, talking, thinking, thinking] : 2
+[eating, talking, thinking, hungry] : 2
+[eating, thinking, sleeping, hungry] : 2
+[sleeping, thinking, sleeping, hungry] : 2
+[sleeping, eating, sleeping, hungry] : 2
+[sleeping, eating, sleeping, hungry] : 1
+[sleeping, eating, sleeping, hungry] : 1
+[thinking, eating, sleeping, hungry] : 1
+[thinking, eating, thinking, hungry] : 1
+[thinking, eating, thinking, eating] : 2
+[thinking, eating, thinking, eating] : 1
+[thinking, eating, thinking, eating] : 1
+[thinking, eating, thinking, eating] : 1
+[thinking, eating, thinking, eating] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 1
+[thinking, eating, talking, eating] : 2
+[thinking, eating, thinking, sleeping] : 2
+[sleeping, eating, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, sleeping] : 2
+[sleeping, sleeping, thinking, thinking] : 2
+[thinking, sleeping, thinking, thinking] : 2
+[thinking, thinking, eating, thinking] : 2
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[thinking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 1
+[talking, thinking, eating, thinking] : 2
+[thinking, thinking, sleeping, sleeping] : 2
+[thinking, thinking, sleeping, sleeping] : 2
+[thinking, thinking, sleeping, sleeping] : 2
+[thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, talking] : 2
+[thinking, thinking, thinking, talking] : 2
+[thinking, thinking, sleeping, thinking] : 2
+[thinking, thinking, sleeping, thinking] : 2
 [thinking, thinking, thinking, eating] : 2
 [thinking, thinking, thinking, eating] : 1
 [thinking, thinking, thinking, eating] : 1
-[thinking, thinking, thinking, eating] : 1
-[thinking, thinking, thinking, eating] : 1
-[thinking, thinking, talking, eating] : 1
 [thinking, thinking, talking, eating] : 1
 [thinking, thinking, talking, eating] : 1
 [thinking, thinking, talking, eating] : 2
-[talking, thinking, hungry, eating] : 2
-[talking, thinking, hungry, eating] : 2
-[hungry, sleeping, hungry, sleeping] : 2
-[hungry, sleeping, hungry, sleeping] : 2
-[hungry, sleeping, eating, sleeping] : 2
-[hungry, sleeping, eating, sleeping] : 1
-[hungry, sleeping, eating, sleeping] : 1
-[hungry, thinking, eating, sleeping] : 1
-[eating, thinking, eating, sleeping] : 2
-[eating, thinking, eating, sleeping] : 2
-[eating, thinking, eating, thinking] : 2
-[eating, thinking, eating, thinking] : 1
-[eating, thinking, eating, thinking] : 1
-[eating, thinking, eating, thinking] : 1
-[eating, thinking, eating, thinking] : 1
-[eating, talking, eating, thinking] : 2
-[eating, talking, eating, thinking] : 2
-[sleeping, hungry, sleeping, thinking] : 2
-[sleeping, hungry, sleeping, thinking] : 2
-[sleeping, hungry, sleeping, thinking] : 2
-[sleeping, hungry, thinking, thinking] : 2
-[thinking, hungry, thinking, thinking] : 2
-[thinking, hungry, thinking, thinking] : 2
-[thinking, eating, thinking, sleeping] : 2
-[thinking, eating, sleeping, sleeping] : 2
-[thinking, eating, sleeping, sleeping] : 2
-[thinking, eating, sleeping, sleeping] : 1
-[thinking, eating, sleeping, sleeping] : 1
-[thinking, eating, sleeping, thinking] : 1
-[thinking, eating, sleeping, thinking] : 2
-[thinking, eating, sleeping, thinking] : 2
-[thinking, eating, sleeping, thinking] : 2
-[thinking, eating, thinking, thinking] : 2
-[thinking, eating, talking, thinking] : 2
-[thinking, eating, talking, thinking] : 2
-[thinking, eating, thinking, talking] : 2
-[thinking, eating, hungry, talking] : 2
-[thinking, eating, hungry, talking] : 2
-[sleeping, sleeping, hungry, hungry] : 2
-[sleeping, sleeping, hungry, hungry] : 2
-[sleeping, sleeping, hungry, hungry] : 2
-[thinking, sleeping, hungry, hungry] : 2
-[thinking, thinking, hungry, hungry] : 2
-[talking, thinking, hungry, hungry] : 2
-[talking, thinking, eating, hungry] : 2
-[talking, thinking, eating, hungry] : 2
-[talking, thinking, eating, hungry] : 1
-[talking, thinking, eating, hungry] : 1
-[talking, thinking, eating, hungry] : 1
-[talking, thinking, eating, hungry] : 2
-[thinking, sleeping, eating, hungry] : 2
-[thinking, sleeping, sleeping, hungry] : 2
-[thinking, sleeping, sleeping, hungry] : 2
-[thinking, thinking, sleeping, hungry] : 2
-[thinking, thinking, thinking, hungry] : 2
-[thinking, talking, thinking, hungry] : 2
-[thinking, talking, thinking, hungry] : 2
-[thinking, talking, thinking, eating] : 2
-[thinking, talking, thinking, eating] : 1
-[thinking, talking, thinking, eating] : 1
-[thinking, talking, thinking, eating] : 1
-[thinking, talking, thinking, eating] : 2
 [thinking, thinking, thinking, sleeping] : 2
-[thinking, thinking, sleeping, sleeping] : 2
-[thinking, thinking, sleeping, sleeping] : 2
-[thinking, thinking, sleeping, thinking] : 2
-[thinking, eating, thinking, thinking] : 2
-[thinking, eating, thinking, thinking] : 1
-[thinking, eating, thinking, thinking] : 1
-[thinking, eating, thinking, thinking] : 1
-[thinking, eating, thinking, thinking] : 1
-[thinking, eating, thinking, thinking] : 2
-[thinking, eating, talking, thinking] : 2
-[thinking, eating, talking, thinking] : 2
-[thinking, sleeping, thinking, thinking] : 2
-[thinking, sleeping, thinking, sleeping] : 2
-[thinking, sleeping, thinking, sleeping] : 2
-[thinking, thinking, eating, sleeping] : 2
-[thinking, thinking, eating, sleeping] : 2
-[thinking, thinking, eating, sleeping] : 2
-[thinking, thinking, eating, sleeping] : 1
-[thinking, thinking, eating, sleeping] : 1
-[thinking, sleeping, eating, thinking] : 1
-[thinking, sleeping, eating, thinking] : 1
-[thinking, sleeping, eating, thinking] : 2
-[thinking, sleeping, eating, thinking] : 2
-[thinking, thinking, eating, thinking] : 2
-[thinking, talking, eating, thinking] : 2
-[thinking, talking, eating, thinking] : 2
-[thinking, thinking, eating, talking] : 2
-[thinking, thinking, eating, talking] : 2
-[thinking, thinking, sleeping, thinking] : 2
-[thinking, thinking, sleeping, eating] : 2
-[thinking, thinking, sleeping, eating] : 1
-[thinking, thinking, sleeping, eating] : 1
-[thinking, thinking, thinking, eating] : 1
-[thinking, thinking, thinking, eating] : 2
 [thinking, thinking, thinking, sleeping] : 2
-[thinking, thinking, sleeping, sleeping] : 2
-[thinking, thinking, sleeping, sleeping] : 2
-[thinking, thinking, sleeping, sleeping] : 2
-[thinking, thinking, sleeping, thinking] : 2
 [thinking, thinking, thinking, thinking] : 2
 [thinking, thinking, thinking, thinking] : 2
-[thinking, thinking, thinking, thinking] : 2
-[thinking, thinking, talking, thinking] : 2
-[thinking, thinking, talking, thinking] : 2
 [thinking, thinking, thinking, sleeping] : 2
 [thinking, thinking, thinking, sleeping] : 2
 [thinking, thinking, thinking, thinking] : 2
 [thinking, thinking, thinking, talking] : 2
 [thinking, thinking, thinking, talking] : 2
+[thinking, thinking, thinking, thinking, eating] : 2
+[thinking, thinking, thinking, thinking, eating] : 1
+[thinking, thinking, thinking, thinking, eating] : 1
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, talking] : 2
+[thinking, thinking, thinking, thinking, talking] : 2
+[thinking, thinking, thinking, thinking, eating] : 2
+[thinking, thinking, thinking, thinking, eating] : 1
+[thinking, thinking, thinking, thinking, eating] : 1
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, talking] : 2
+[thinking, thinking, thinking, thinking, talking] : 2
+[thinking, thinking, thinking, thinking, eating] : 2
+[thinking, thinking, thinking, thinking, eating] : 1
+[thinking, thinking, thinking, thinking, eating] : 1
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, talking] : 2
+[thinking, thinking, thinking, thinking, talking] : 2
+[thinking, sleeping, thinking, thinking, thinking] : 2
+[thinking, sleeping, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, eating] : 2
+[thinking, thinking, thinking, thinking, eating] : 1
+[thinking, thinking, thinking, thinking, eating] : 1
+[thinking, talking, thinking, thinking, eating] : 1
+[thinking, talking, thinking, thinking, eating] : 1
+[thinking, talking, thinking, thinking, eating] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, sleeping] : 2
+[thinking, thinking, thinking, thinking, thinking] : 2
+[thinking, thinking, thinking, thinking, talking] : 2
+[thinking, thinking, thinking, thinking, talking] : 2
