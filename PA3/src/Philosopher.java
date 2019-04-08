@@ -9,7 +9,7 @@ public class Philosopher extends BaseThread {
 	/**
 	 * Max time an action can take (in milliseconds)
 	 */
-	public static final long TIME_TO_WASTE = 1000;
+	public static final long TIME_TO_WASTE = 1;
 	
 	private static double percentChanceTalking = 1;
 	
@@ -85,23 +85,23 @@ public class Philosopher extends BaseThread {
 	 * essentially wraps Thread.sleep()
 	 */
 	public void sleep() throws InterruptedException {
-		DiningPhilosophers.soMonitor.requestSleep(getTID()-1);
+		DiningPhilosophers.soMonitor.requestSleep(this);
 		System.out.println(iTID + " has started sleeping");
 		DiningPhilosophers.logArray();
 		sleep((long) (Math.random() * TIME_TO_WASTE));
 		System.out.println(iTID + " is done sleeping");
 		DiningPhilosophers.logArray();
-		DiningPhilosophers.soMonitor.endSleep(getTID()-1);
+		DiningPhilosophers.soMonitor.endSleep(this);
 	}
 	
 	public void addPepper() throws InterruptedException {
-		DiningPhilosophers.soMonitor.requestPepperShaker(getTID()-1);
+		DiningPhilosophers.soMonitor.requestPepperShaker(this);
 		System.out.println(iTID + " takes a pepper shaker");
 		DiningPhilosophers.logArray();
 		sleep((long) (Math.random() * TIME_TO_WASTE));
 		System.out.println(iTID + " puts the pepper shaker back");
 		DiningPhilosophers.logArray();
-		DiningPhilosophers.soMonitor.endPepperShaker(getTID()-1);
+		DiningPhilosophers.soMonitor.endPepperShaker(this);
 	}
 	
 	public synchronized void incrementTID() {
@@ -111,6 +111,10 @@ public class Philosopher extends BaseThread {
 	public synchronized void decrementTID() {
 		this.iTID--;
 	}
+	
+	public synchronized int getIndexTID() {
+		return this.iTID-1;
+	}
 
 	/**
 	 * No, this is not the act of running, just the overridden Thread.run()
@@ -118,20 +122,22 @@ public class Philosopher extends BaseThread {
 	public void run() {
 		try {
 			for (int i = 0; i < DiningPhilosophers.DINING_STEPS; i++) {
-				DiningPhilosophers.soMonitor.pickUp(getTID()-1);
+				DiningPhilosophers.soMonitor.pickUp(this);
 				eat();
-				DiningPhilosophers.soMonitor.putDown(getTID()-1);
+				DiningPhilosophers.soMonitor.putDown(this);
 
 				think();
 
 				double rand = Math.random();
 				if (rand < percentChanceTalking) {
-					DiningPhilosophers.soMonitor.requestTalk(getTID()-1);
+					DiningPhilosophers.soMonitor.requestTalk(this);
 					talk();
-					DiningPhilosophers.soMonitor.endTalk(getTID()-1);
+					DiningPhilosophers.soMonitor.endTalk(this);
 				}
 				
-				//DiningPhilosophers.addOrRemovePhilospshers(getTID());
+				if(DiningPhilosophers.soMonitor.addOrRemovePhilospshers(getTID())) {
+					break;
+				}
 				yield();	
 			}
 		}catch (Exception e) {

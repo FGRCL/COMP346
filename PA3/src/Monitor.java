@@ -14,6 +14,7 @@ public class Monitor {
 	private boolean isTalking;
 	private int talkPendingCount;
 	public int nbAvailablePepperShakers = 2;
+	private static double percentChancePhilosopherChange = 0.5;
 
 	/**
 	 * Constructor
@@ -37,21 +38,21 @@ public class Monitor {
 	 * Grants request (returns) to eat when both chopsticks/forks are available.
 	 * Else forces the philosopher to wait()
 	 */
-	public synchronized void pickUp(final int piTID) throws InterruptedException{
-		states.set(piTID, State.hungry);
-		while (!canEat(piTID))
+	public synchronized void pickUp(final Philosopher phil) throws InterruptedException{
+		states.set(phil.getIndexTID(), State.hungry);
+		while (!canEat(phil.getIndexTID()))
 		{
 			wait();
 		}
-		states.set(piTID, State.eating);
+		states.set(phil.getIndexTID(), State.eating);
 	}
 
 	/**
 	 * When a given philosopher's done eating, they put the chopstiks/forks down and
 	 * let others know they are available.
 	 */
-	public synchronized void putDown(final int piTID) {
-		states.set(piTID, State.thinking);
+	public synchronized void putDown(final Philosopher phil) {
+		states.set(phil.getIndexTID(), State.thinking);
 		notifyAll();
 	}
 
@@ -59,44 +60,44 @@ public class Monitor {
 	 * Only one philopher at a time is allowed to philosophy (while she is not
 	 * eating).
 	 */
-	public synchronized void requestTalk(final int piTID) throws InterruptedException{
+	public synchronized void requestTalk(final Philosopher phil) throws InterruptedException{
 		talkPendingCount++;
 		while(isSomeoneTalking() || sleepingCount > 0 || isTalking) {
 			wait();
 		}
 		isTalking = true;
-		states.set(piTID, State.talking);
+		states.set(phil.getIndexTID(), State.talking);
 	}
 
 	/**
 	 * When one philosopher is done talking stuff, others can feel free to start
 	 * talking.
 	 */
-	public synchronized void endTalk(final int piTID) {
+	public synchronized void endTalk(final Philosopher phil) {
 		talkPendingCount--;
 		isTalking = false;
-		states.set(piTID, State.thinking);
+		states.set(phil.getIndexTID(), State.thinking);
 		notifyAll();
 	}
 	
-	public synchronized void requestSleep(final int piTID) throws InterruptedException{
+	public synchronized void requestSleep(final Philosopher phil) throws InterruptedException{
 		while(isSomeoneTalking() || talkPendingCount > 0) {
 			wait();
 		}
 		sleepingCount++;
-		states.set(piTID, State.sleeping);
+		states.set(phil.getIndexTID(), State.sleeping);
 	}
 
-	public synchronized void endSleep(final int piTID) {
+	public synchronized void endSleep(final Philosopher phil) {
 		sleepingCount--;
-		states.set(piTID, State.thinking);
+		states.set(phil.getIndexTID(), State.thinking);
 		if(sleepingCount<0) {
 			notifyAll();
 		}
 	}
 	
 
-	public synchronized void requestPepperShaker(final int piTID) throws InterruptedException {
+	public synchronized void requestPepperShaker(final Philosopher phil) throws InterruptedException {
 		while(nbAvailablePepperShakers<1) {
 			wait();
 		}
@@ -123,16 +124,6 @@ public class Monitor {
 				(rightPhilosopher(piTID)% states.size()>=piTID || (rightPhilosopher(piTID)% states.size()<piTID && states.get(rightPhilosopher(piTID)) != State.hungry));
 		return leftChopsitckAvailable && rightChopstickAvailable;
 	}
-
-	public synchronized void addPhilosopher(final int piTID) {
-		System.out.println((piTID+1)+" invites "+states.size());
-		states.add(State.thinking);
-	}
-
-	public synchronized void removePhilosopher(final int piTID) {
-		System.out.println((piTID+1)+" bids farewell to his fellow philosophers");
-		states.remove(piTID);
-	}
 	
 	private synchronized boolean isSomeoneTalking() {
 		boolean isSomeoneTalking = false;
@@ -142,6 +133,44 @@ public class Monitor {
 			}
 		}
 		return isSomeoneTalking;
+	}
+	
+	public synchronized boolean addOrRemovePhilospshers(final int id) throws InterruptedException {
+		boolean removedPhilosopher = false;
+		double rand = Math.random();
+		if(safeToChangeArray() && rand < percentChancePhilosopherChange) {
+			rand = Math.random();
+			if(rand <0.5) {
+				addPhilosopher(id);
+			} else {
+				removePhilosopher(id);
+				removedPhilosopher = true;
+			}
+		}
+		return removedPhilosopher;
+
+	}
+	
+	private synchronized void removePhilosopher(final int id) throws InterruptedException {
+		System.out.println(id + " bids farewell to his fellow philosophers");
+		states.remove(id-1);
+		DiningPhilosophers.removePhilosopher(id);
+	}
+
+	private synchronized void addPhilosopher(final int id) {
+		System.out.println(id + " invites a new philosopher to the table");
+		states.add(Monitor.State.thinking);
+		DiningPhilosophers.addPhilosopher(id);
+	}
+	
+	private synchronized boolean safeToChangeArray() {
+		boolean allThinking = true;
+		for(State state: states) {
+			if(state != State.thinking) {
+				allThinking = false;
+			}
+		}
+		return allThinking;
 	}
 }
 

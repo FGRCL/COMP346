@@ -22,7 +22,7 @@ public class DiningPhilosophers
 	 */
 	public static final int DEFAULT_NUMBER_OF_PHILOSOPHERS = 4;
 	
-	public static final boolean DEV_MODE = true;
+	public static final boolean DEV_MODE = false;
 
 	/**
 	 * Dining "iterations" per philosopher thread
@@ -38,10 +38,10 @@ public class DiningPhilosophers
 	private static PrintWriter debugLog;
 	
 	private static ArrayList<String> debugQueue = new ArrayList<String>();
-	
-	private static double percentChancePhilosopherChange = 0.5;
-	
+
 	private static ArrayList<Philosopher> aoPhilosophers;
+	
+	private static int j;
 
 
 	/*
@@ -68,6 +68,12 @@ public class DiningPhilosophers
 			// Space for all the philosophers
 			aoPhilosophers = new ArrayList<Philosopher>();
 
+			System.out.println
+			(
+					iPhilosophers +
+					" philosopher(s) came in for a dinner."
+			);
+			
 			// Let 'em sit down
 			for(int j = 0; j < iPhilosophers; j++)
 			{
@@ -75,16 +81,13 @@ public class DiningPhilosophers
 				aoPhilosophers.get(j).start();
 			}
 
-			System.out.println
-			(
-				iPhilosophers +
-				" philosopher(s) came in for a dinner."
-			);
 
 			// Main waits for all its children to die...
 			// I mean, philosophers to finish their dinner.
-			for(int j = 0; j < iPhilosophers; j++)
+			for(j = 0; j < aoPhilosophers.size(); j++)
+			{
 				aoPhilosophers.get(j).join();
+			}
 
 			System.out.println("All philosophers have left. System terminates normally.");
 			writeLog();
@@ -109,35 +112,31 @@ public class DiningPhilosophers
 		poException.printStackTrace(System.err);
 	}
 	
-	public static synchronized void addOrRemovePhilospshers(final int id) {
-		double rand = Math.random();
-		if(rand < percentChancePhilosopherChange) {
-			addPhilosopher(id);
-		}else {
-			rand = Math.random();
-			if(rand < percentChancePhilosopherChange) {
-				removePhilosopher(id);
-			}
-		}
-	}
-	
-	private static synchronized void removePhilosopher(final int id) {
-		System.out.println(id + " bids farewell to the other philososphers.");
+	public static synchronized void removePhilosopher(final int id) throws InterruptedException {
 		aoPhilosophers.remove(id-1);
 		for(int i=(id-1); i<aoPhilosophers.size(); i++) {
 			aoPhilosophers.get(i).decrementTID();
 		}
-		soMonitor.states.remove(id-1);
+		j=0;
 	}
 
-	private static synchronized void addPhilosopher(final int id) {
-		System.out.println(id + " invites a new philosopher to the table.");
-		soMonitor.states.add(id-1, Monitor.State.thinking);
-		aoPhilosophers.add(id-1, new Philosopher(id));
-		for(int i=id; i<aoPhilosophers.size(); i++) {
+	public static synchronized void addPhilosopher(final int id) {
+		Philosopher added = new Philosopher(id+1);
+		aoPhilosophers.add(id, added);
+		for(int i=id+1; i<aoPhilosophers.size(); i++) {
 			aoPhilosophers.get(i).incrementTID();
 		}
-		aoPhilosophers.get(id-1).start();
+		j=0;
+		added.start();
+	}
+	
+	@SuppressWarnings("unused")
+	private static void printTidArray(){
+		System.out.print("[ ");
+		for(int i=0; i<aoPhilosophers.size();i++) {
+			System.out.print(aoPhilosophers.get(i).getTID()+", ");
+		}
+		System.out.println(" ] threads running "+Thread.activeCount());
 	}
 
 	public static synchronized void logArray() {
